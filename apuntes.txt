@@ -1,0 +1,1 @@
+Enlace a página de todos los permisos de Discord para loa bots: https://discord.js.org/#/docs/main/stable/class/Permissions?scrollTo=s-DEFAULT
