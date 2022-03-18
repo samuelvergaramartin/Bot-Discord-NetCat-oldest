@@ -130,7 +130,8 @@ client.once("ready", (bot) => {
 client.on("messageCreate", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
-    if(!message.channel.permissionsFor(client.user).has('SEND_MESSAGES')) return message.author.send("Error, no tengo permisos suficientes.").catch(()=>{ return;});
+    
+    
     //if (!message.guild.channel.me.permissions.has("SEND_MESSAGES")) return message.author.send("Error, no tengo permisos.").catch(()=>{ return;});
    /* if (!message.guild.me.permissions.has("ADMINISTRATOR")) {
         return message.channel.send("No tengo los permisos necesarios. Permisos que me faltan: `ADMINISTRADOR`. Lo sé , es exagerado, mi creador está trabajando en ajustar esto mejor, por ahora requiero permisos de administrador a modo de parche para no caerme.")
@@ -167,6 +168,7 @@ if(prefix_db.tiene(message.guild.id)) {
    
     
     if(!message.content.startsWith(prefix)) return;
+    if(!message.channel.permissionsFor(client.user).has('SEND_MESSAGES')) return message.author.send("Error, no tengo permisos suficientes.").catch(()=>{ return;});
     if(message.author.id == "519634005226815492") return;
     /*let ID = ["519634005226815492"]
      let sv = client.guilds.cache.get("900856291461824562")//914245265823760444
