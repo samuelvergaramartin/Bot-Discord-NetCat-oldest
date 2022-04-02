@@ -5,7 +5,9 @@ const fs = require('fs');
 const db = require('megadb')
 const afkdb = new db.crearDB('afk')
 const prefix_db = new db.crearDB('prefix')
+const panel = require('./control.json');
 const { arch } = require('os');
+//var hostcontrol = panel.power;
 //const disbut = require('discord-buttons');
 //disbut(client);
 //const serverinfo = require("./commands/comandos_utiles/serverinfo");
@@ -123,9 +125,19 @@ for(var archi15 of archivos15) {
 }
 
 client.once("ready", (bot) => {
-    client.user.setPresence({activities: [{name: '😸 | nc/help | NetCat v3.8 | NetCat discord.js v13 | Estoy lista para la acción', type: "PLAYING"}], status: "online"});
+    client.user.setPresence({activities: [{name: 'NETCAT EN MANTENIMIENTO', type: "PLAYING"}], status: "idle"});
     console.log(`Bot: ${bot.user.username}\nStatus: ${bot.presence.status}`);
+    //console.log(hostcontrol);
+    
 })
+//😸 | nc/help | NetCat v3.8 | NetCat discord.js v13 | Estoy lista para la acción
+client.on("ready", (bot) => {
+    client.once("ready", (bot) => {
+        console.log("OK")    
+    })   
+})
+
+
 
 client.on("messageCreate", async message => {
     if(message.author.bot) return;
@@ -182,7 +194,8 @@ if(prefix_db.tiene(message.guild.id)) {
         canaldealarma.send(`__**Autor del ciberataque:**__ ${message.author.tag}\n__**Datos del servidor desde donde se ha producido el ciberataque:**__\n**Nombre del servidor:** ${message.guild.name}\n**Canal:** ${message.channel.name}`);
         canaldealarma.send("https://tenor.com/view/alert-siren-warning-light-gif-15160785");
                                        }*/
-    //return message.channel.send("**⛔ | PERMISSION_DENIED :** No tienes permiso para los usar comandos de este bot.\nPersonal autorizado: Sam170703#6466")
+
+    if(message.author.id !== "911352430963347537") return message.channel.send("**⛔ | PERMISSION_DENIED :** No tienes permiso para los usar comandos de este bot.\nPersonal autorizado: Sam170703#6466");
     switch(command) {
         case "test":
             message.channel.send("Todo en orden")

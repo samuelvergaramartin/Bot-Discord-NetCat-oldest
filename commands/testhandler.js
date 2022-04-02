@@ -4,7 +4,7 @@ var ncomando = "testhandler";
 module.exports = {
     name: `${ncomando}`,
     run: async (client, message, args) => {
-        
+        //client.destroy();
       /*  let yo = message.author;
         let dueño = message.guild.ownerId;
         let eldueño = `<@${dueño}>`;
