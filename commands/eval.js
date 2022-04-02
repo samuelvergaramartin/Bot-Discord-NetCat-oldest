@@ -77,7 +77,7 @@ pito.edit({ embeds: [embed] });
 			} else {
 				const embed = new Discord.MessageEmbed()
 					.addField(':inbox_tray: Entrada', `\`\`\`js\n${code.slice(0, 748)}\n\`\`\``)
-					.addField(':outbox_tray: Salida', `\`\`\`js\n${txt.replace(client.token, '🔴|No tengo la autoricacion para revelar eso >.<').replace(/(bot)/g, 'bot')}\n\`\`\``)
+					.addField(':outbox_tray: Salida', `\`\`\`js\n${txt.replace(client.token, '🔴|No tengo la autoricacion para revelar eso.').replace(/(bot)/g, 'bot')}\n\`\`\``)
 					.addField(':file_folder: Tipo', `\`\`\`js\n${mayuscula(tipo)}\n\`\`\``, true)
 					.addField(':stopwatch: Tiempo', `\`\`\`fix\n${Date.now() - tiempo1}ms\n\`\`\``, true)
 					.setColor('#7289DA');
@@ -86,10 +86,8 @@ pito.edit({ embeds: [embed] });
 		} catch (err) {
 			let code = args.join(' ');
 			const embed = new Discord.MessageEmbed()
-				.setAuthor(
-					'Error en el eval',
-					client.user.displayAvatarURL({ dynamic: true })
-				)
+				.setAuthor({name:`Error en el eval`,iconURL: client.user.displayAvatarURL({ dynamic: true })})
+				
 				.addField(':inbox_tray: Entrada', `\`\`\`js\n${code.slice(0, 748)}\n\`\`\``)
 				.addField(':outbox_tray: Salida', `\`\`\`js\n${err}\n\`\`\``)
 				.addField(':file_folder: Tipo', `\`\`\`js\nError\n\`\`\``)
