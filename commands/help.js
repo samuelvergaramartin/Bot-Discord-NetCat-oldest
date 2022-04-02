@@ -68,7 +68,7 @@ module.exports = {
             const embed7 = new MessageEmbed()
           
             .setTitle('📖Comandos de NetCat📖:')
-            .addField('Comandos útiles:', 'nc/avatar\nnc/bomba-atómica\nnc/clear\nnc/md -TEMPORALMENTE FUERA DE SERVICIO.\nnc/say\nnc/serverinfo\nnc/exit\nnc/afk\nnc/bugreport\nnc/suggest')
+            .addField('Comandos útiles:', 'nc/avatar\nnc/bomba-atómica\nnc/clear\nnc/md -TEMPORALMENTE FUERA DE SERVICIO.\nnc/say\nnc/serverinfo\nnc/exit -TEMPORALMENTE FUERA DE SERVICIO.\nnc/afk\nnc/bugreport\nnc/suggest')
             .setColor('ff00d9')
             .setTimestamp()
             .setFooter({text:`• Bot creado por Sam170703#6466 | Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})})
@@ -377,7 +377,7 @@ module.exports = {
             const embed7 = new MessageEmbed()
           
             .setTitle('📖Comandos de NetCat📖:')
-            .addField('Comandos útiles:', 'nc/avatar\nnc/bomba-atómica\nnc/clear\nnc/md -TEMPORALMENTE FUERA DE SERVICIO.\nnc/say\nnc/serverinfo\nnc/exit\nnc/afk\nnc/bugreport\nnc/suggest')
+            .addField('Comandos útiles:', 'nc/avatar\nnc/bomba-atómica\nnc/clear\nnc/md -TEMPORALMENTE FUERA DE SERVICIO.\nnc/say\nnc/serverinfo\nnc/exit -TEMPORALMENTE FUERA DE SERVICIO.\nnc/afk\nnc/bugreport\nnc/suggest')
             .setColor('ff00d9')
             .setTimestamp()
             .setFooter({text:`• Bot creado por Sam170703#6466 | Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})})
