@@ -7,6 +7,9 @@ const afkdb = new db.crearDB('afk')
 const prefix_db = new db.crearDB('prefix')
 const panel = require('./control.json');
 const { arch } = require('os');
+const { create } = require('sourcebin')
+//const mega = require('megadb')
+//const quick = require('quick.db');
 //var hostcontrol = panel.power;
 //const disbut = require('discord-buttons');
 //disbut(client);
