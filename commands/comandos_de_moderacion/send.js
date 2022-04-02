@@ -1,6 +1,7 @@
 const Discord = require ('discord.js');
 //const client = new Discord.Client();
 //const { Client, MessageEmbed } = require('discord.js');
+var colors = require('colors');
 var ncomando = "send";
 
 module.exports = {
