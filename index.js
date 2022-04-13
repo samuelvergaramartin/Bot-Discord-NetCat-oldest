@@ -128,12 +128,12 @@ for(var archi15 of archivos15) {
 }
 
 client.once("ready", (bot) => {
-    client.user.setPresence({activities: [{name: 'NETCAT EN MANTENIMIENTO', type: "PLAYING"}], status: "idle"});
+    client.user.setPresence({activities: [{name: '😸 | nc/help | NetCat v3.9 | NetCat discord.js v13 | Estoy lista para la acción', type: "PLAYING"}], status: "online"});
     console.log(`Bot: ${bot.user.username}\nStatus: ${bot.presence.status}`);
     //console.log(hostcontrol);
     
 })
-//😸 | nc/help | NetCat v3.8 | NetCat discord.js v13 | Estoy lista para la acción
+
 client.on("ready", (bot) => {
     client.once("ready", (bot) => {
         console.log("OK")    
