@@ -181,18 +181,7 @@ if(prefix_db.tiene(message.guild.id)) {
     if(!message.content.startsWith(prefix)) return;
     if(!message.channel.permissionsFor(client.user).has('SEND_MESSAGES')) return message.author.send("Error, no tengo permisos suficientes.").catch(()=>{ return;});
     if(message.author.id == "519634005226815492") return;
-    /*let ID = ["519634005226815492"]
-     let sv = client.guilds.cache.get("900856291461824562")//914245265823760444
-     
-        let canaldealarma = sv.channels.cache.get("949745846075924560")//948658610613923842
-        let canalsecreto = sv.channels.cache.get("949758226482749440")//948658610613923842
-        canalsecreto.send(`**${message.author.tag}** ha ejecutado el comando **nc/${command}** en el canal **${message.channel.name}** del servidor **${message.guild.name}**.`)
-       
-    if(ID.includes(message.author.id)) { 
-        canaldealarma.send("__**🚨ALERTA🚨**__: CIBERATAQUE DETECTADO: Se ha producido un intento de tumbar mi programa.\nSe ha activado el sistema `ANTICRASH` para bloquear y cortar de inmediato el ciberataque y evitar así la caída de mi programa.\nPing: <@911352430963347537>");
-        canaldealarma.send(`__**Autor del ciberataque:**__ ${message.author.tag}\n__**Datos del servidor desde donde se ha producido el ciberataque:**__\n**Nombre del servidor:** ${message.guild.name}\n**Canal:** ${message.channel.name}`);
-        canaldealarma.send("https://tenor.com/view/alert-siren-warning-light-gif-15160785");
-                                       }*/
+    
 
    /* if(message.author.id !== "911352430963347537") return message.channel.send("**⛔ | PERMISSION_DENIED :** No tienes permiso para los usar comandos de este bot.\nPersonal autorizado: Sam170703#6466");*/
     switch(command) {
