@@ -1,16 +1,53 @@
 //try {
 var colors = require('colors');
 var ncomando = "testhandler";
+const db = require('megadb');
+const testdb = new db.crearDB('testdatabase')
 module.exports = {
     name: `${ncomando}`,
     run: async (client, message, args) => {
-        message.channel.send(`${client.user.id}`)
-        if(client.user.id == "962316970131353641") {
-            message.channel.send("OK")
+        //--------------------------------------------------  
+        /*let ejecutorcomando = message.author.id;
+        var estadorespuesta = "No respondida";
+        message.channel.send("Mensaje de entrada, por favor.")
+        client.on("messageCreate", async message => {
+            if(message.author.bot) return;
+            if(message.channel.type === "dm") return;
+            if(!ejecutorcomando) return;
+            if(ejecutorcomando) {
+               if(estadorespuesta == "No respondida") {
+                if(message.content == "y") {
+                    message.channel.send("Todo correcto")
+                     estadorespuesta = "Respondida";
+                } else {
+                    message.channel.send("Error.")
+                    estadorespuesta = "Respondida";
+                }
+               }
+                
+                
+            }
+        })*/
+       //-------------------------------------------------------------------
+        //---------------------------------------------------------------------------
+        const algo = "algo";
+        const user = message.author;
+        const esealgo = await testdb.obtener(`${message.guild.id}.${user.id}`)
+        
+
+        /*if(!warns.tiene(`${message.guild.id}.${persona.id}`))
+        warns.establecer(`${message.guild.id}.${persona.id}`, 0)
+        
+        warns.sumar(`${message.guild.id}.${persona.id}`, 1)*/
+        if(!testdb.tiene(`${message.guild.id}.${user.id}`)) {
+        testdb.establecer(`${message.guild.id}.${user.id}`, algo)
+        message.channel.send(`En mi base de datos no tengo registrado nada, voy a registrarle algo...`)
+        
         } else {
-            message.channel.send("ERROR");
+            message.channel.send(`En mi base de datos tengo registrado: ${esealgo}`)
         }
         
+       //------------------------------------------------------------------------------
        // 
         
         //client.destroy();
@@ -32,7 +69,7 @@ module.exports = {
             console.log(`${author}`);
         }*/
         //message.channel.send("Sin errores.");
-        message.channel.send("Todo en orden.")
+       // message.channel.send("Todo en orden.")
         //const dueño = message.guild.fetchOwner();
         //console.log(`${message.author}`);
        /* let mirol = message.guild.roles.cache.find(rol => rol.name == "prueba");
