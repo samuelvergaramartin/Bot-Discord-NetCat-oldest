@@ -4,8 +4,14 @@ var ncomando = "testhandler";
 module.exports = {
     name: `${ncomando}`,
     run: async (client, message, args) => {
+        message.channel.send(`${client.user.id}`)
+        if(client.user.id == "962316970131353641") {
+            message.channel.send("OK")
+        } else {
+            message.channel.send("ERROR");
+        }
         
-        
+       // 
         
         //client.destroy();
       /*  let yo = message.author;
