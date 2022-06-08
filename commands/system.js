@@ -1,9 +1,13 @@
+const Discord = require("discord.js");
 const db = require('megadb');
 const cuentas = new db.crearDB('main-db')
 const { MessageEmbed } = require('discord.js');
+var colors = require('colors');
+var ncomando = "system";
 module.exports = {
-    name: "system",
+    name: `${ncomando}`,
     run: async (client, message, args) => {
+        if(message.author.id !== "911352430963347537") return message.channel.send("**⛔ | PERMISSION_DENIED :** No tienes permiso para usar este comando, sólo el mi creador puede usar este comando.\nPersonal autorizado: Sam170703#6466");
         const tituloprincipal = "Cuentas de los usuarios del sistema de NetCat";
         const tituloid ="ID de usuario";
         const user = message.author;
@@ -114,3 +118,4 @@ module.exports = {
         })
     }
 }
+console.log(`Comando: ${ncomando}: EN DESARROLLO`.yellow)
