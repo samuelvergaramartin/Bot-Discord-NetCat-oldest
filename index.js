@@ -133,6 +133,13 @@ for(var archi16 of archivos16) {
     client.comandos.set(comando.name, comando)
 }
 
+let archivos17 = fs.readdirSync('./commands/public_commands').filter((f) => f.endsWith('.js'))
+
+for(var archi17 of archivos17) {
+    let comando = require("./commands/public_commands/" + archi17)
+    client.comandos.set(comando.name, comando)
+}
+
 client.once("ready", (bot) => {
 
     client.user.setPresence({activities: [{name: '😸 | nc/help | NetCat v4.0 | NetCat discord.js v13 | Estoy lista para la acción', type: "PLAYING"}], status: "online"});
