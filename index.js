@@ -131,7 +131,7 @@ client.once("ready", (bot) => {
     client.user.setPresence({activities: [{name: '😸 | nc/help | NetCat v4.0 | NetCat discord.js v13 | Estoy lista para la acción', type: "PLAYING"}], status: "online"});
 
     console.log(`Bot: ${bot.user.username}\nStatus: ${bot.presence.status}`);
-    
+    //
     
 })
 
