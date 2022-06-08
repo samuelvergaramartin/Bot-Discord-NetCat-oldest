@@ -124,7 +124,7 @@ module.exports = {
             const embed14 = new MessageEmbed()
           
             .setTitle('📖Comandos de NetCat📖:')
-            .addField('Comandos links NetCat:', 'nc/invite\nnc/support')
+            .addField('Comandos links NetCat:', 'nc/invite\nnc/support\nnc/netcathostserver\nnc/panelnetcathost\nnc/webnetcathost')
             .setColor('ff00d9')
             .setTimestamp()
             .setFooter({text:`• Bot creado por Sam170703#6466 | Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})})
@@ -140,7 +140,7 @@ module.exports = {
             const embedprincipal = new MessageEmbed()
           
             .setTitle("📖Comandos de NetCat📖: Menú de módulos")
-            .setDescription("Para ver los comandos de cualquier módulo seleccione el módulo que desee ver en la barra de menú situada abajo de este mensaje.")
+            .setDescription("Para ver los comandos de cualquier módulo seleccione el módulo que desee ver en la barra de menú situada abajo de este mensaje.\nComandos del evento Netcat Birthday Party:\n`nc/happy-birthday`\n`nc/a-bailar-netcat`")
             .addField('__📜Listado de módulos📜:__', ' -Comandos de conversación 🟢\n-Comandos de chistes 🟢\n-Comandos de diversión 🟢\n-Comandos de Gifs 🟢\n-Comandos de NSFW 🟢\n-Comandos de reacción 🟢\n-Comandos útiles 🟢\n-Comandos para hacer chuletas de exámenes de historia 🟢\n-Comandos de música 🔴\n-Comandos de configuración ​🟢\n-Comandos de economía 🟢\n-Comandos de moderación 🟢\n-Comandos de juegos 🟢\n-Comandos links NetCat 🟢\n-Comandos para miembros VIP 🟡')
             .addField('Links de NetCat:', '[ link de invitación](https://discord.com/oauth2/authorize?client_id=900470345809674260&scope=bot&permissions=8) y [servidor oficial de NetCat](https://discord.gg/3Tfwk8QdmJ )')
             .setFooter({text:'🟢 = Módulo operativo y desbloqueado.\n  🟡 = Módulo operativo, pero bloqueado hasta que seas miembro VIP.\n  🔴 = Módulo fuera de servicio temporalmente.'})
