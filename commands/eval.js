@@ -97,4 +97,4 @@ pito.edit({ embeds: [embed] });
 	});
     }
 }
-console.log(`Comando: ${ncomando}: EN MANTENIMIENTO`.yellow)
+console.log(`Comando: ${ncomando}: OK`.green)
