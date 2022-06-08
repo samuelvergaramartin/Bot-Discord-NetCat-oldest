@@ -28,105 +28,105 @@ for(var archi of archivos) {
     client.comandos.set(comando.name, comando)
 }
 
-let archivos2 = fs.readdirSync('./commands/comandos_de_conversacion').filter((f) => f.endsWith('.js'))
+let archivos2 = fs.readdirSync('./commands/public_commands/comandos_de_conversacion').filter((f) => f.endsWith('.js'))
 
 for(var archi2 of archivos2) {
-    let comando = require("./commands/comandos_de_conversacion/" + archi2)
+    let comando = require("./commands/public_commands/comandos_de_conversacion/" + archi2)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos3 = fs.readdirSync('./commands/comandos_utiles').filter((f) => f.endsWith('.js'))
+let archivos3 = fs.readdirSync('./commands/public_commands/comandos_utiles').filter((f) => f.endsWith('.js'))
 
 for(var archi3 of archivos3) {
-    let comando = require("./commands/comandos_utiles/" + archi3)
+    let comando = require("./commands/public_commands/comandos_utiles/" + archi3)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos4 = fs.readdirSync('./commands/comandos_links_netcat').filter((f) => f.endsWith('.js'))
+let archivos4 = fs.readdirSync('./commands/public_commands/comandos_links_netcat').filter((f) => f.endsWith('.js'))
 
 for(var archi4 of archivos4) {
-    let comando = require("./commands/comandos_links_netcat/" + archi4)
+    let comando = require("./commands/public_commands/comandos_links_netcat/" + archi4)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos5 = fs.readdirSync('./commands/comandos_de_reaccion').filter((f) => f.endsWith('.js'))
+let archivos5 = fs.readdirSync('./commands/public_commands/comandos_de_reaccion').filter((f) => f.endsWith('.js'))
 
 for(var archi5 of archivos5) {
-    let comando = require("./commands/comandos_de_reaccion/" + archi5)
+    let comando = require("./commands/public_commands/comandos_de_reaccion/" + archi5)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos6 = fs.readdirSync('./commands/comandos_de_configuracion').filter((f) => f.endsWith('.js'))
+let archivos6 = fs.readdirSync('./commands/public_commands/comandos_de_configuracion').filter((f) => f.endsWith('.js'))
 
 for(var archi6 of archivos6) {
-    let comando = require("./commands/comandos_de_configuracion/" + archi6)
+    let comando = require("./commands/public_commands/comandos_de_configuracion/" + archi6)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos7 = fs.readdirSync('./commands/comandos_de_diversion').filter((f) => f.endsWith('.js'))
+let archivos7 = fs.readdirSync('./commands/public_commands/comandos_de_diversion').filter((f) => f.endsWith('.js'))
 
 for(var archi7 of archivos7) {
-    let comando = require("./commands/comandos_de_diversion/" + archi7)
+    let comando = require("./commands/public_commands/comandos_de_diversion/" + archi7)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos8 = fs.readdirSync('./commands/comandos_de_chistes').filter((f) => f.endsWith('.js'))
+let archivos8 = fs.readdirSync('./commands/public_commands/comandos_de_chistes').filter((f) => f.endsWith('.js'))
 
 for(var archi8 of archivos8) {
-    let comando = require("./commands/comandos_de_chistes/" + archi8)
+    let comando = require("./commands/public_commands/comandos_de_chistes/" + archi8)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos9 = fs.readdirSync('./commands/comandos_de_gifs').filter((f) => f.endsWith('.js'))
+let archivos9 = fs.readdirSync('./commands/public_commands/comandos_de_gifs').filter((f) => f.endsWith('.js'))
 
 for(var archi9 of archivos9) {
-    let comando = require("./commands/comandos_de_gifs/" + archi9)
+    let comando = require("./commands/public_commands/comandos_de_gifs/" + archi9)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos10 = fs.readdirSync('./commands/comandos_de_juegos').filter((f) => f.endsWith('.js'))
+let archivos10 = fs.readdirSync('./commands/public_commands/comandos_de_juegos').filter((f) => f.endsWith('.js'))
 
 for(var archi10 of archivos10) {
-    let comando = require("./commands/comandos_de_juegos/" + archi10)
+    let comando = require("./commands/public_commands/comandos_de_juegos/" + archi10)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos11 = fs.readdirSync('./commands/comandos_de_economia').filter((f) => f.endsWith('.js'))
+let archivos11 = fs.readdirSync('./commands/public_commands/comandos_de_economia').filter((f) => f.endsWith('.js'))
 
 for(var archi11 of archivos11) {
-    let comando = require("./commands/comandos_de_economia/" + archi11)
+    let comando = require("./commands/public_commands/comandos_de_economia/" + archi11)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos12 = fs.readdirSync('./commands/comandos_de_moderacion').filter((f) => f.endsWith('.js'))
+let archivos12 = fs.readdirSync('./commands/public_commands/comandos_de_moderacion').filter((f) => f.endsWith('.js'))
 
 for(var archi12 of archivos12) {
-    let comando = require("./commands/comandos_de_moderacion/" + archi12)
+    let comando = require("./commands/public_commands/comandos_de_moderacion/" + archi12)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos13 = fs.readdirSync('./commands/comandos_de_nsfw').filter((f) => f.endsWith('.js'))
+let archivos13 = fs.readdirSync('./commands/public_commands/comandos_de_nsfw').filter((f) => f.endsWith('.js'))
 
 for(var archi13 of archivos13) {
-    let comando = require("./commands/comandos_de_nsfw/" + archi13)
+    let comando = require("./commands/public_commands/comandos_de_nsfw/" + archi13)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos14 = fs.readdirSync('./commands/comandos_para_hacer_chuletas_de_examenes_de_historia').filter((f) => f.endsWith('.js'))
+let archivos14 = fs.readdirSync('./commands/public_commands/comandos_para_hacer_chuletas_de_examenes_de_historia').filter((f) => f.endsWith('.js'))
 
 for(var archi14 of archivos14) {
-    let comando = require("./commands/comandos_para_hacer_chuletas_de_examenes_de_historia/" + archi14)
+    let comando = require("./commands/public_commands/comandos_para_hacer_chuletas_de_examenes_de_historia/" + archi14)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos15 = fs.readdirSync('./commands/comandos_vip').filter((f) => f.endsWith('.js'))
+let archivos15 = fs.readdirSync('./commands/public_commands/comandos_vip').filter((f) => f.endsWith('.js'))
 
 for(var archi15 of archivos15) {
-    let comando = require("./commands/comandos_vip/" + archi15)
+    let comando = require("./commands/public_commands/comandos_vip/" + archi15)
     client.comandos.set(comando.name, comando)
 }
 
-let archivos16 =fs.readdirSync('./commands/only_dev_commands').filter((f) => f.endsWith('.js'))
+let archivos16 = fs.readdirSync('./commands/only_dev_commands').filter((f) => f.endsWith('.js'))
 
 for(var archi16 of archivos16) {
     let comando = require("./commands/only_dev_commands/" + archi16)
