@@ -126,6 +126,13 @@ for(var archi15 of archivos15) {
     client.comandos.set(comando.name, comando)
 }
 
+let archivos16 =fs.readdirSync('./commands/only_dev_commands').filter((f) => f.endsWith('.js'))
+
+for(var archi16 of archivos16) {
+    let comando = require("./commands/only_dev_commands/" + archi16)
+    client.comandos.set(comando.name, comando)
+}
+
 client.once("ready", (bot) => {
 
     client.user.setPresence({activities: [{name: '😸 | nc/help | NetCat v4.0 | NetCat discord.js v13 | Estoy lista para la acción', type: "PLAYING"}], status: "online"});
