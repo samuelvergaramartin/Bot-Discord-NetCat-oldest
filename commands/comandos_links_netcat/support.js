@@ -6,7 +6,7 @@ module.exports = {
         const { MessageEmbed } = require('discord.js');
 
     const support = new MessageEmbed()
-        .setTitle('Server support: https://discord.gg/3Tfwk8QdmJ ')
+        .setTitle('Server support: https://discord.gg/tz8CTXMStX ')
         .setDescription('Este es mi servidor de Discord oficial~ [haz click en el link de aquí arriba ⬆️]​')
         .setColor('RANDOM')
         .setTimestamp()
