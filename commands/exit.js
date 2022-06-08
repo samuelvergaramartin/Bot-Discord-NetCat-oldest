@@ -5,7 +5,7 @@ var ncomando = "exit";
 module.exports = {
     name: "exit",
     run: async (client, message, args) => {
-        message.channel.send("🟡Este comando se encuentra fuera de servicio temporalmente. Disculpe las molestias")
+        //message.channel.send("🟡Este comando se encuentra fuera de servicio temporalmente. Disculpe las molestias")
         let ID = ["911352430963347537"]
 
   if(!ID.includes(message.author.id)) return message.channel.send("** ⛔ | Error :** Sólo mi creador, Sam170703#6466, puede usar este comando.")
