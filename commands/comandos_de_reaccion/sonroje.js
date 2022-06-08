@@ -11,9 +11,9 @@ const blushotro = new MessageEmbed()
         .setTitle(`${message.author.username} se sonrojó al ver/por culpa de ${user.username} `)
         .setColor('RANDOM')
         .setTimestamp()
-        .setImage("https://tenor.com/view/blush-anime-angry-gif-13159552")
+        .setImage("https://media.tenor.com/images/78d22835091a757fb19b3e6ddaef0b84/tenor.gif")
         .setFooter({text:`• Hecho por ${message.author.username}`,iconURL: message.author.displayAvatarURL({format: "png"})});
         message.channel.send({embeds: [blushotro]});
     }
 }
-console.log(`Comando: ${ncomando}: ERROR`.red)
+console.log(`Comando: ${ncomando}: OK`.green)
