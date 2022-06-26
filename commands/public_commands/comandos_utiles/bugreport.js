@@ -44,7 +44,7 @@ module.exports = {
 /* Aca hemos hecho el Embed, sobre lo de "dynamic" significa que si el usuario tiene una imagen animada, la muestre animada */
       message.channel.send("✅ || Se ha reportado el bug correctamente en mi servidor de soporte.")
       //channel.send("<@&911517878505836584>, EMERGENCIA! TENEMOS UN BUG QUE RESOLVER!")
-      channel.send("ALERTA @everyone! Equipo!, Tenemos un bug que resolver.")
+      channel.send("ALERTA <@911352430963347537> Jefe!, Tenemos un bug que resolver.")
      // channel.send(embed) //Mandariamos el Embed al canal de reportes de Bugs
       channel.send({embeds: [embed]});
  // } else {
