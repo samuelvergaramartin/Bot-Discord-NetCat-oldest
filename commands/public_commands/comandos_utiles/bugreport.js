@@ -14,10 +14,10 @@ module.exports = {
       if(!bug) return message.channel.send("**No has escrito ningún Bug.**")
 
      //let sv = client.guilds.cache.get("900856291461824562")
-      let sv = client.guilds.cache.get("949740275784376371")
+      let sv = client.guilds.cache.get("900856291461824562")
 /* Aqui pondrian la ID del servidor en el cual llegarian los reportes, normalmente se ponen la ID de los servidores de Soporte del BOT */
       //let channel = sv.channels.cache.get("949745853290119218")
-      let channel = sv.channels.cache.get("970654977418743868")
+      let channel = sv.channels.cache.get("965333898735267870")
 
       if(!channel) { 
         let err = sv.channels.cache.filter(s => s.type==="text").random()
