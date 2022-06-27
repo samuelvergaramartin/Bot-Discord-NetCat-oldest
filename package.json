@@ -16,7 +16,7 @@
     "croxydb": "^0.0.7",
     "discord-player": "^5.2.2",
     "discord-sync-commands-v14": "^2.0.0",
-    "discord.js": "^14.0.0-dev.1656158629-c4653f9",
+    "discord.js": "^13.8.1",
     "dotenv": "^16.0.0",
     "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.4.1",
