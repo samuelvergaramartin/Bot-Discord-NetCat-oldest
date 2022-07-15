@@ -52,7 +52,7 @@ module.exports = {
     .setAuthor({name:`${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})})
     .setDescription(`**__Inventario de objetos__**\nZapatillas de deporte: ${objetonumero1}\nPienso para gatos: ${objetonumero2}\nCoche de carreras: ${objetonumero3}\nCapa de invisibilidad: ${objetonumero4}\nGuardaespaldas: ${objetonumero5}\n**Miembro VIP**: ${objetovip}\nTotal de objetos: ${objetonumero1 + objetonumero2 + objetonumero3 + objetonumero4 + objetonumero5 + objetovip}`)
     .setColor("RANDOM")
-    .setFooter({text:`• Bot creado por Sam170703#6466 | Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})});
+    .setFooter({text:`• Bot creado por DragonCat#1063 | Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})});
 //if(message.deletable) message.delete()
 message.channel.send({embeds: [embed1]});
 

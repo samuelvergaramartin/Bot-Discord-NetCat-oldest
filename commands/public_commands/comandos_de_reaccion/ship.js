@@ -24,7 +24,7 @@ module.exports = {
   .setTitle(`${message.author.username} y ${user.username} son compatilbes un...`)
   .setImage(amor)
   .setTimestamp()
-  .setFooter({text:`• Bot creado por Sam170703#6466 | Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})})
+  .setFooter({text:`• Bot creado por DragonCat#1063 | Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})})
         message.channel.send({embeds: [embed]});
 }
     

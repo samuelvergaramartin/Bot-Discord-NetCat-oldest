@@ -3,7 +3,7 @@ const Discord = require ('discord.js');
 module.exports = {
     name: "servidores",
     run: async (client, message, args) => {
-        let ID = ["911352430963347537"]
+        let ID = ["995661776337240094"]
 
   if(!ID.includes(message.author.id)) return message.channel.send("**<:aviso:925769011822727209>| Error :** No tienes permisos")//.then(msg => msg.delete({timeout: 9000}));
 ;

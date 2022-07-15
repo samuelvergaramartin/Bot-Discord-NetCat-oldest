@@ -142,7 +142,7 @@ for(var archi17 of archivos17) {
 
 client.once("ready", (bot) => {
 
-    client.user.setPresence({activities: [{name: '🎉 Celebrando mi cumpleaños! | nc/help | NetCat v4.0 | NetCat discord.js v13 | Estoy lista para la acción', type: "PLAYING"}], status: "online"});
+    client.user.setPresence({activities: [{name: 'nc/help | NetCat v4.2 | NetCat discord.js v13 | Estoy lista para la acción', type: "PLAYING"}], status: "online"});
 
     console.log(`Bot: ${bot.user.username}\nStatus: ${bot.presence.status}`);
     //
@@ -197,7 +197,7 @@ if(prefix_db.tiene(message.guild.id)) {
     if(message.author.id == "519634005226815492") return;
     
 
-   /* if(message.author.id !== "911352430963347537") return message.channel.send("**⛔ | PERMISSION_DENIED :** No tienes permiso para los usar comandos de este bot.\nPersonal autorizado: Sam170703#6466");*/
+   /* if(message.author.id !== "995661776337240094") return message.channel.send("**⛔ | PERMISSION_DENIED :** No tienes permiso para los usar comandos de este bot.\nPersonal autorizado: Sam170703#6466");*/
     switch(command) {
         case "test":
             message.channel.send("Todo en orden")

@@ -1,5 +1,5 @@
 const Discord = require ('discord.js');
-var ncomando = "netcathost-server";
+var ncomando = "netcathostserver";
 var colors = require('colors');
 
 module.exports = {
