@@ -140,6 +140,14 @@ for(var archi17 of archivos17) {
     client.comandos.set(comando.name, comando)
 }
 
+client.slashcommands = new discord.Collection();
+const slashcommandsFiles = fs.readdirSync('./slashcommands').filter((f) => f.endsWith('.js'));
+
+for(const file of slashcommandsFiles) {
+    const slash = require("./slashcommands/" + file)
+    client.slashcommands.set(slash.data.name, slash)
+}
+
 client.once("ready", (bot) => {
 
     client.user.setPresence({activities: [{name: 'nc/help | NetCat v4.2 | NetCat discord.js v13 | Estoy lista para la acción', type: "PLAYING"}], status: "online"});
@@ -149,7 +157,20 @@ client.once("ready", (bot) => {
     
 })
 
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isCommand()) return;
 
+    const slashcmds = client.slashcommands.get(interaction.commandName)
+
+    if(!slashcmds) return;
+
+    try {
+        await slashcmds.run(client, interaction)
+    } catch(e) {
+        console.error(e);
+    }
+	
+});
 
 
 client.on("messageCreate", async message => {
@@ -210,6 +231,8 @@ if(prefix_db.tiene(message.guild.id)) {
         return cmd.run(client, message, args)
     }
 })
+
+
 
 client.login(process.env.TOKEN);
 
