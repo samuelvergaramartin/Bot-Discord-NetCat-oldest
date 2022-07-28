@@ -1,3 +1,6 @@
+const { eliminar } = require("../../../config_music/music-config");
+
+
 module.exports = {
     name: "delsong",
     description: "Elimina una cancion",
