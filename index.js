@@ -235,7 +235,7 @@ if(prefix_db.tiene(message.guild.id)) {
     
     let cmd = client.comandos.get(command)
     if(cmd) {
-        return cmd.run(client, message, args)
+        return cmd.run(client, message, args, discord)
     }
 })
 
