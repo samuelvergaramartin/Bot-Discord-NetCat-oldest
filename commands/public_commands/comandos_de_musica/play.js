@@ -78,7 +78,7 @@ module.exports = {
           ytInfo[0].title,
           ytInfo[0].description,
           ytInfo[0].url,
-          ytInfo[0].thumbnail.url
+         // ytInfo[0].thumbnail.url
         ),
       ],
     });
