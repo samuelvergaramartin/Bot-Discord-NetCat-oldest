@@ -6,8 +6,8 @@ module.exports = {
     description: "Elimina una cancion",
     aliases: ["delS", "DS"],
     run: async(client, message, args, discord) =>{
-      const res = eliminar(message.options.getString("titulo"), message.guild.id);
-  
+      const res = eliminar({title: eliminar.title, GuildID: message.guild.id});
+      //const res = eliminar(message.options.getString("titulo"), message.guild.id);
       const embed = {
         author: {
           name: "NETCAT MUSIC",
