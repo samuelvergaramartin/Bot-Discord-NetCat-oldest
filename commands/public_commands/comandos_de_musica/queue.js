@@ -17,9 +17,9 @@ module.exports = {
 
     const embed = {
       author: {
-        name: "OCELOTL MUSIC",
+        name: "NETCAT MUSIC",
         icon_url:
-          "https://png.pngtree.com/png-vector/20190830/ourlarge/pngtree-music-icon-design-vector-png-image_1714137.jpg",
+          "https://cdn.discordapp.com/avatars/962316970131353641/eddbc8163f24e79a3ca1841c9b964b36.png?size=2048",
       },
       title: "Lista de reproduccion",
       description: "Lista de reproduccion:\n\n" + songs.join(""),
