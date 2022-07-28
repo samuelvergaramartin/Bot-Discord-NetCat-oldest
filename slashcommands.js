@@ -1,6 +1,6 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
-const bottoken = require('./config.json');
+const bottoken = require('./token/config.json');
 const fs = require('fs');
 
 const commands = [];
