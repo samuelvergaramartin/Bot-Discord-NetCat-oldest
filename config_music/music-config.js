@@ -101,7 +101,7 @@ const musicEmbed = (title, desc, link, image) => {
     author: {
       name: "NETCAT MUSIC",
       icon_url:
-        "https://png.pngtree.com/png-vector/20190830/ourlarge/pngtree-music-icon-design-vector-png-image_1714137.jpg",
+        "https://cdn.discordapp.com/avatars/962316970131353641/eddbc8163f24e79a3ca1841c9b964b36.png?size=2048",
     },
     title: title,
     description: `${desc}\n**[LINK](${link})**`,
@@ -116,7 +116,7 @@ const queueEmbed = (title, link, image) => {
     author: {
       name: "NETCAT MUSIC",
       icon_url:
-        "https://png.pngtree.com/png-vector/20190830/ourlarge/pngtree-music-icon-design-vector-png-image_1714137.jpg",
+        "https://cdn.discordapp.com/avatars/962316970131353641/eddbc8163f24e79a3ca1841c9b964b36.png?size=2048",
     },
     title: "Queue Atualizada",
     description: `**Cancion agregadar a la lista de reproduccion.**\n\nTitulo: **${title}**\n**[LINK](${link})**`,
