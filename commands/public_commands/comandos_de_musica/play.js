@@ -47,7 +47,7 @@ module.exports = {
     if (pvc)
       return message.reply({
         embeds: [
-          queueEmbed(ytInfo[0].title, ytInfo[0].url, ytInfo[0].thumbnail.url),
+          queueEmbed(ytInfo[0].title, ytInfo[0].url),
         ],
       });
 
