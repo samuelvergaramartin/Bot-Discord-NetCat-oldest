@@ -19,7 +19,7 @@ const reproducir = async (player, msg, url, key) => {
     ytInfo[0].title,
     ytInfo[0].description,
     ytInfo[0].url,
-    ytInfo[0].thumbnail.url
+   // ytInfo[0].thumbnail.url
   );
 
   if (msg.type == "APPLICATION_COMMAND") {
@@ -99,7 +99,7 @@ const eliminar = (title, guildId) => {
 const musicEmbed = (title, desc, link, image) => {
   return {
     author: {
-      name: "OCELOTL MUSIC",
+      name: "NETCAT MUSIC",
       icon_url:
         "https://png.pngtree.com/png-vector/20190830/ourlarge/pngtree-music-icon-design-vector-png-image_1714137.jpg",
     },
@@ -114,7 +114,7 @@ const musicEmbed = (title, desc, link, image) => {
 const queueEmbed = (title, link, image) => {
   return {
     author: {
-      name: "OCELOTL MUSIC",
+      name: "NETCAT MUSIC",
       icon_url:
         "https://png.pngtree.com/png-vector/20190830/ourlarge/pngtree-music-icon-design-vector-png-image_1714137.jpg",
     },
