@@ -21,7 +21,7 @@ const {
 module.exports = {
   name: "play",
   description: "Reproducir musica",
-  async execute(client, message, args, discord) {
+  run: async(client, message, args, discord) =>{
     //# Canal de voz del usuario
     let vc = message.member.voice.channel;
 
