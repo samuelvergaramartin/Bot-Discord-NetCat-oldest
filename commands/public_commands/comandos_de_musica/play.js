@@ -8,7 +8,7 @@ const {
   musicEmbed,
   queueEmbed,
   nextSong,
-} = require("../../global/music");
+} = require("../../../config_music/music-config");
 
 const {
   createAudioPlayer,
