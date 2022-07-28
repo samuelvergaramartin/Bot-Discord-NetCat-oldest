@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
     .setName("test")
-    .setDescription("Ejecuta tu primer slashcommand"),
+    .setDescription("Testeo de slashcommands"),
      options: [
         {
           name: "usurol",
