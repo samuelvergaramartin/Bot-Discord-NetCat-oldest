@@ -1,4 +1,4 @@
-const { eliminar } = require("../../../config_music/music-config");
+const { eliminar } = require("../config_music/music-config");
 
 
 module.exports = {

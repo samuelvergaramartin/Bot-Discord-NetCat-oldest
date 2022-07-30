@@ -1,4 +1,4 @@
-const { loopQueue } = require("../../../config_music/music-config");
+const { loopQueue } = require("../config_music/music-config");
 module.exports = {
   name: "loop",
   description: "Loop a la lista de reproduccion",

@@ -1,4 +1,4 @@
-const { fullQueue } = require("../../../config_music/music-config");
+const { fullQueue } = require("../config_music/music-config");
 const { getVoiceConnection } = require("@discordjs/voice");
 
 module.exports = {

@@ -1,10 +1,8 @@
 const { getVoiceConnection } = require("@discordjs/voice");
-
-const { nextSong } = require("../../../config_music/music-config");
-
+const { queue } = require("../config_music/music-config");
 module.exports = {
-  name: "next",
-  description: "Pasa a la sigueinte cancion",
+  name: "stop",
+  description: "Para y desconecta el bot de musica",
   run: async(client, message, args, discord) =>{
     const mvc = message.member.voice.channel.id;
     const pvc = getVoiceConnection(message.guild.id);
@@ -18,13 +16,9 @@ module.exports = {
     const player = getVoiceConnection(message.guild.id).state.subscription
       .player;
 
-    nextSong(
-      message.guild.id,
-      player.state.resource.metadata.key,
-      message,
-      player,
-      pvc,
-      "cmd"
-    );
+    queue.delete(message.guild.id);
+
+    player.stop();
+    pvc.destroy();
   },
 };
