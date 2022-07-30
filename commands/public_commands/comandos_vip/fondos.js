@@ -3,11 +3,14 @@ const Discord = require ('discord.js');
 const { Client, MessageEmbed } = require('discord.js');
 const db = require('megadb')
 const vip = new db.crearDB('vip')
+const color = require('colors');
+var ncomando = "fondos";
 
 module.exports = {
-    name: "fondos",
+    name: `${ncomando}`,
     run: async (client, message, args) => {
-        const user = message.author;
+      message.channel.send("**:x: | ERROR:** Comando averiado, por favor, reporte el error con el comando `nc/bugreport`.");
+        /*const user = message.author;
 
         if (!vip.tiene(`${user.id}`))
          vip.establecer(`${user.id}`, 0)
@@ -50,9 +53,10 @@ module.exports = {
                   .setTimestamp()
                   .setFooter({text:`• Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})});
                   message.channel.send({embeds: [embed]});
-         }
+         }*/
         
 
        
        }
 }
+console.log(`Comando: ${ncomando}: ERROR`.red);
