@@ -147,6 +147,13 @@ for(var archi18 of archivos18) {
     client.comandos.set(comando.name, comando)
 }
 
+let archivos19 = fs.readdirSync('./commands/public_commands/comandos_de_informacion').filter((f) => f.endsWith('.js'))
+
+for(var archi19 of archivos19) {
+    let comando = require("./commands/public_commands/comandos_de_informacion/" + archi19)
+    client.comandos.set(comando.name, comando)
+}
+
 client.slashcommands = new discord.Collection();
 const slashcommandsFiles = fs.readdirSync('./slashcommands').filter((f) => f.endsWith('.js'));
 
