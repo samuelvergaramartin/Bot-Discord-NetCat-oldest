@@ -6,7 +6,7 @@ const db = require('megadb')
 const vip = new db.crearDB('vip')
 
 module.exports = {
-    name: "help",
+    name: "help.old",
     run: async (client, message, args) => {
 	    //if(message.channel.permissionsFor(client.user).has("EMBEDS_LINKS")) return message.channel.send("**:x: | ERROR:** No tengo los permisos suficientes.\nPermiso que me falta: `EMBEDS_LINKS`");
 	    //if(message.channel.permissionsFor(client.user).has("ATTACH_FILES")) return message.channel.send("**:x: | ERROR:** No tengo los permisos suficientes.\nPermiso que me falta: `ATTACH_FILES`");
