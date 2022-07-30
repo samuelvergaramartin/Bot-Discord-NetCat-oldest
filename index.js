@@ -157,13 +157,13 @@ for(const file of slashcommandsFiles) {
 
 client.once("ready", (bot) => {
 
-    client.user.setPresence({activities: [{name: 'nc/help | NetCat v4.2 | NetCat discord.js v13 | Estoy lista para la acción', type: "PLAYING"}], status: "online"});
+    client.user.setPresence({activities: [{name: 'nc/help | NetCat v4.3 | NetCat discord.js v13 | Estoy lista para la acción', type: "PLAYING"}], status: "online"});
 
     console.log(`Bot: ${bot.user.username}\nStatus: ${bot.presence.status}`);
-    //
+    
     
 })
-
+//
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
