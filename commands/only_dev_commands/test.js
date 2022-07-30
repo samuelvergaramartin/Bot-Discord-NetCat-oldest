@@ -43,6 +43,7 @@ var modulodeestecomando = informacion;
 module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
+        var estadosistema = await systemstatus.obtener("mode");
         function ejecutarcomandoisOK() {
           /*  message.channel.send("**_///////////_ Canales _///////////_**")
   message.channel.send(`${message.guild.channels.cache.map(g => g.name).join('\n')}`)
@@ -154,6 +155,7 @@ module.exports = {
         }
     }
 }
+var estadosistema = estadosistemadb.mode;
 if(estadosistema === "under-maintenance") {
     console.log(`Comando: ${ncomando}: ${commandisenmantenimiento} (Motivo: Sistema en mantenimiento)`.yellow);
 }
