@@ -51,7 +51,7 @@ module.exports = {
             musicEmbed,
             queueEmbed,
             nextSong,
-          } = require("../../../config-music/music-config");
+          } = require("../../../export/config-music/music-config");
           //-------------------
          /* const {
             createAudioPlayer,

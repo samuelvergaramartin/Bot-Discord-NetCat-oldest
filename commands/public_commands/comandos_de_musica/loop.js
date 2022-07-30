@@ -34,9 +34,9 @@ var idpropietario = socket.ownerid;
 const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
 
-var ncomando = listallcommands.queue;
+var ncomando = listallcommands.loop;
 var estadomodulo = estadomodulosdb.musica;
-var estadocomando = estadocomandosdb.queue;
+var estadocomando = estadocomandosdb.loop;
 var modulodeestecomando = musica;
 
 
@@ -44,31 +44,14 @@ module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
         var estadosistema = await systemstatus.obtener("mode"); 
-        const { fullQueue } = require("../../../config-music/music-config");
-        const { getVoiceConnection } = require("@discordjs/voice");
+        const { loopQueue } = require("../../../export/config-music/music-config");
         async function ejecutarcomandoisOK() {
-            const pvc = getVoiceConnection(message.guild.id);
-            if (!pvc) return message.reply("No se esta reproduciendo musica");
-        
-            const player = getVoiceConnection(message.guild.id).state.subscription
-              .player;
-        
-            // console.log(player.state.resource.metadata.title);
-        
-            const songs = fullQueue(message.guild.id);
-        
-            const embed = {
-              author: {
-                name: "DEXTERBOT MUSIC",
-                icon_url:
-                  "https://cdn.discordapp.com/avatars/997588573110931597/eb6d70c66f474c7898d9037d53a6e853.png?size=2048",
-              },
-              title: "Lista de reproduccion",
-              description: "Lista de reproduccion:\n\n" + songs.join(""),
-              color: "RED",
-            };
-        
-            message.reply({ embeds: [embed] });
+            const loop = loopQueue(message.guild.id);
+
+            if (loop == "SN") return message.channel.send("Sin cacniones");
+            if (!loop) return message.reply("Loop descativado");
+            if (loop) return message.reply("Loop activado");
+    
 }
         if(ncomando == privados.test) {
             if(message.author.id !== idpropietario) {

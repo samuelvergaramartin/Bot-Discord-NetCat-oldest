@@ -45,7 +45,7 @@ module.exports = {
     run: async(client, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         const { getVoiceConnection } = require("@discordjs/voice");
-        const { queue } = require("../../../config-music/music-config");
+        const { queue } = require("../../../export/config-music/music-config");
         async function ejecutarcomandoisOK() {
             const mvc = message.member.voice.channel.id;
     const pvc = getVoiceConnection(message.guild.id);

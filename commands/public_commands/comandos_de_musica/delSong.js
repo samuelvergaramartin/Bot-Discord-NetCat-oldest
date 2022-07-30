@@ -34,39 +34,32 @@ var idpropietario = socket.ownerid;
 const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
 
-var ncomando = listallcommands.previous;
+var ncomando = listallcommands.delsong;
 var estadomodulo = estadomodulosdb.musica;
-var estadocomando = estadocomandosdb.previous;
+var estadocomando = estadocomandosdb.delsong;
 var modulodeestecomando = musica;
 
 
 module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
-        var estadosistema = await systemstatus.obtener("mode");
-        const { getVoiceConnection } = require("@discordjs/voice");
-
-        const { previousSong } = require("../../../config-music/music-config");
+        var estadosistema = await systemstatus.obtener("mode"); 
+        const { eliminar } = require("../../../export/config-music/music-config");
         async function ejecutarcomandoisOK() {
-            const mvc = message.member.voice.channel.id;
-    const pvc = getVoiceConnection(message.guild.id);
-
-    if (!pvc) return message.reply("No se esta reproduciendo musica");
-
-    if (mvc != pvc.joinConfig.channelId) {
-      return message.reply("Tienes que estar en el mismo canal de voz");
-    }
-
-    const player = getVoiceConnection(message.guild.id).state.subscription
-      .player;
-
-    previousSong(
-      message.guild.id,
-      player.state.resource.metadata.key,
-      message,
-      player,
-      pvc
-    );
+            const res = eliminar({title: eliminar.title, GuildID: message.guild.id});
+      //const res = eliminar(message.options.getString("titulo"), message.guild.id);
+      const embed = {
+        author: {
+          name: "DEXTERBOT MUSIC",
+          icon_url:
+            "https://cdn.discordapp.com/avatars/997588573110931597/eb6d70c66f474c7898d9037d53a6e853.png?size=2048",
+        },
+        title: `${res.msg}`,
+        description: `Cancion: **${res.title}**`,
+        color: "RED",
+      };
+      
+      message.reply({ embeds: [embed] });
     
 }
         if(ncomando == privados.test) {

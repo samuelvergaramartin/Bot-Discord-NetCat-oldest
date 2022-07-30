@@ -34,23 +34,39 @@ var idpropietario = socket.ownerid;
 const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
 
-var ncomando = listallcommands.loop;
+var ncomando = listallcommands.previous;
 var estadomodulo = estadomodulosdb.musica;
-var estadocomando = estadocomandosdb.loop;
+var estadocomando = estadocomandosdb.previous;
 var modulodeestecomando = musica;
 
 
 module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
-        var estadosistema = await systemstatus.obtener("mode"); 
-        const { loopQueue } = require("../../../config-music/music-config");
-        async function ejecutarcomandoisOK() {
-            const loop = loopQueue(message.guild.id);
+        var estadosistema = await systemstatus.obtener("mode");
+        const { getVoiceConnection } = require("@discordjs/voice");
 
-            if (loop == "SN") return message.channel.send("Sin cacniones");
-            if (!loop) return message.reply("Loop descativado");
-            if (loop) return message.reply("Loop activado");
+        const { previousSong } = require("../../../export/config-music/music-config");
+        async function ejecutarcomandoisOK() {
+            const mvc = message.member.voice.channel.id;
+    const pvc = getVoiceConnection(message.guild.id);
+
+    if (!pvc) return message.reply("No se esta reproduciendo musica");
+
+    if (mvc != pvc.joinConfig.channelId) {
+      return message.reply("Tienes que estar en el mismo canal de voz");
+    }
+
+    const player = getVoiceConnection(message.guild.id).state.subscription
+      .player;
+
+    previousSong(
+      message.guild.id,
+      player.state.resource.metadata.key,
+      message,
+      player,
+      pvc
+    );
     
 }
         if(ncomando == privados.test) {
