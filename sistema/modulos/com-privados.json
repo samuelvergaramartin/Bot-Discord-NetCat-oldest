@@ -1,0 +1,9 @@
+{
+    "eval": "eval",
+    "systemmaintenance": "system-mode-maintenance",
+    "systemonline": "system-mode-online",
+    "systemstatus": "system-status",
+    "testsocket": "readsocket",
+    "test": "test",
+    "shutdown": "shutdown"
+}

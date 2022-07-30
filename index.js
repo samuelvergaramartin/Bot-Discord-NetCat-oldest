@@ -4,7 +4,7 @@ const botprefix = require('./defaultprefix.json');
 const fs = require('fs');
 const db = require('megadb')
 const afkdb = new db.crearDB('afk')
-const prefix_db = new db.crearDB('prefix')
+const prefix_db = new db.crearDB('setprefixdb')
 const { arch } = require('os');
 const { create } = require('sourcebin')
 //const mega = require('megadb')
@@ -226,12 +226,12 @@ if(prefix_db.tiene(message.guild.id)) {
     
 
    /* if(message.author.id !== "995661776337240094") return message.channel.send("**⛔ | PERMISSION_DENIED :** No tienes permiso para los usar comandos de este bot.\nPersonal autorizado: Sam170703#6466");*/
-    switch(command) {
+    /*switch(command) {
         case "test":
             message.channel.send("Todo en orden")
             break;
    
-    } 
+    } */
     
     let cmd = client.comandos.get(command)
     if(cmd) {

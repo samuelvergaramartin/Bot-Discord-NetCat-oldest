@@ -1,0 +1,1 @@
+El archivo a ejecutar para encender el bot correctamente es "start.sh", el archivo "boot.sh" es un archivo que usa el programa "start.sh" para iniciar el bot.

@@ -1,0 +1,6 @@
+{
+    "online": "🟢 ON 🟢",
+    "undermaintenance": "🟡 En Mantenimiento 🟡",
+    "offline": "⚪ OFF ⚪",
+    "outofservice": "🔴 Fuera de servicio 🔴"
+}

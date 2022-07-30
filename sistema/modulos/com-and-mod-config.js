@@ -1,0 +1,36 @@
+const Discord = require('discord.js');
+const color = require('colors');
+const db = require('megadb');
+const systemstatus = new db.crearDB('systemstatus');
+const estadosistemadb = require('../../export/mega_databases/systemstatus.json');
+var estadosistema = estadosistemadb.mode;
+const estadomodulosdb = require('../../export/mega_databases/modulestatusdb.json')
+const estadocomandosdb = require('../../export/mega_databases/commandstatusdb.json');
+const listallcommands = require('./listado-comandos.json');
+const listallmodules = require('./modulos.json');
+var configuracion = listallmodules.modulo3;
+var informacion = listallmodules.modulo1;
+var moderacion = listallmodules.modulo2;
+var musica = listallmodules.modulo4;
+const modconfiguracion = require('./mod-configuracion.json');
+const modinformacion = require('./mod-informacion.json');
+const modmoderacion = require('./mod-moderacion.json');
+const modmusica = require('./mod-musica.json');
+
+const comstatus = require('./com-status-list.json');
+var commandisok = comstatus.green;
+var commandisenmantenimiento = comstatus.yellow;
+var commandiserror = comstatus.red;
+var commandisoffline = comstatus.grey;
+const modstatus = require('./mod-status-list.json');
+var modisonline = modstatus.online;
+var modisundermaintenance = modstatus.undermaintenance;
+var modisoffline = modstatus.offline;
+var modisoutofservice = modstatus.outofservice;
+const privados = require('./com-privados.json');
+const socket = require('../sockets/socket.json');
+var nombrepropietario = socket.ownername;
+var idpropietario = socket.ownerid;
+
+const commandstatusdb = new db.crearDB('commandstatusdb');
+const modulestatusdb = new db.crearDB('modulestatusdb');

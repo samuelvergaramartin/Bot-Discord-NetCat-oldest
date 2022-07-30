@@ -1,0 +1,11 @@
+{
+    "delsong": "delSong",
+    "loop": "loop",
+    "next": "next",
+    "pause": "pause",
+    "play": "play",
+    "previous": "previous",
+    "queue": "queue",
+    "resume": "resume",
+    "stop": "stop"
+}

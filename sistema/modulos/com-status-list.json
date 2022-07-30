@@ -1,0 +1,6 @@
+{
+    "green": "🟢 OK 🟢",
+    "yellow": "🟡 EN MANTENIMIENTO 🟡",
+    "red": "🔴 ERROR 🔴",
+    "grey": "⚪ OFFLINE ⚪"
+}

@@ -2,7 +2,7 @@ const Discord = require ('discord.js');
 //const client = new Discord.Client();
 const { Client, MessageEmbed } = require('discord.js');
 const db = require('megadb');
-const prefix_db = new db.crearDB('prefix')
+const prefix_db = new db.crearDB('setprefixdb')
 
 module.exports = {
     name: "setprefix",
