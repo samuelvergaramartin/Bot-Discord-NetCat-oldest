@@ -1,9 +1,12 @@
 const Discord = require ('discord.js');
+const color = require('colors');
+var ncomando = "ship";
 
 module.exports = {
-    name: "ship",
+    name: `${ncomando}`,
     run: async (client, message, args) => {
-    let user = message.mentions.users.first() 
+      message.channel.send("**:x: | ERROR:** Comando averiado, por favor, reporte el error con el comando `nc/bugreport`.");
+    /*let user = message.mentions.users.first() 
   if(!user) return message.channel.send(":x: || Debes mencionar a alguien") || client.users.cache.get(args[0]) || message.author;
   const { MessageEmbed } = require('discord.js');
   const cero = `https://cdn.discordapp.com/attachments/791270423630315521/817739616408961024/Noembed.png`
@@ -25,7 +28,8 @@ module.exports = {
   .setImage(amor)
   .setTimestamp()
   .setFooter({text:`• Bot creado por DragonCat#1063 | Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})})
-        message.channel.send({embeds: [embed]});
+        message.channel.send({embeds: [embed]});*/
 }
     
 }
+console.log(`Comando: ${ncomando}: ERROR`.red);
