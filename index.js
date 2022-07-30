@@ -7,6 +7,11 @@ const afkdb = new db.crearDB('afk')
 const prefix_db = new db.crearDB('setprefixdb')
 const { arch } = require('os');
 const { create } = require('sourcebin')
+const commandstatusdb = new db.crearDB('commandstatusdb');
+const modulestatusdb = new db.crearDB('modulestatusdb');
+const socket = require('./sistema/sockets/socket.json');
+var nombrepropietario = socket.ownername;
+var idpropietario = socket.ownerid;
 //const mega = require('megadb')
 //const quick = require('quick.db');
 //var hostcontrol = panel.power;
@@ -230,7 +235,11 @@ if(prefix_db.tiene(message.guild.id)) {
     if(!message.content.startsWith(prefix)) return;
     if(!message.channel.permissionsFor(client.user).has('SEND_MESSAGES')) return message.author.send("Error, no tengo permisos suficientes.").catch(()=>{ return;});
     if(message.author.id == "519634005226815492") return;
-    
+    const variablesystemstatus = await systemstatus.obtener("mode").catch(()=>{ return message.channel.send(":x: **| ERROR: index.js: line 41 |**\nAnti-crash-system: **ON**\nPor favor, revise los errores detectados en index.js!")});
+     if(!variablesystemstatus) {
+        message.channel.send(":x: **| ERROR: System-status database not found!**\nCreating a new  System-status database...")
+        systemstatus.set("mode", "online").catch(()=>{ return message.channel.send(":x: **| ERROR: index.js: line 43 |**\nAnti-crash-system: **ON**\nPor favor, revise los errores detectados en index.js!")});
+     }
 
    /* if(message.author.id !== "995661776337240094") return message.channel.send("**⛔ | PERMISSION_DENIED :** No tienes permiso para los usar comandos de este bot.\nPersonal autorizado: Sam170703#6466");*/
     /*switch(command) {
