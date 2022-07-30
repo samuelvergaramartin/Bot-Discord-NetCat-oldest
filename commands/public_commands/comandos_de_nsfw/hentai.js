@@ -1,9 +1,12 @@
 const Discord = require ('discord.js');
+const color = require('colors');
+var ncomando = "hentai";
 
 module.exports = {
-    name: "hentai",
+    name: `${ncomando}`,
     run: async (client, message, args) => {
-        const { MessageEmbed } = require('discord.js');
+        message.channel.send("**:x: | ERROR:** Comando averiado, por favor, reporte el error con el comando `nc/bugreport`.");
+       /* const { MessageEmbed } = require('discord.js');
         if(!message.channel.nsfw) return message.channel.send(":x: || Los comandos NSWF sólo se pueden usar en un canal NSFW")
         const uno = `https://images-ext-1.discordapp.net/external/k9LK9at2vo54jlkrbTuVrqEGaFe1yB6KTc50b0pxPyU/https/wetgif.com/wp-content/uploads/hentai-9.gif?width=722&height=406`
   const dos = `https://media.discordapp.net/attachments/791270423630315521/815300902763888660/NSFW.gif`
@@ -20,6 +23,7 @@ const embed = new MessageEmbed()
         .setColor('RANDOM')
         .setTimestamp()
         .setFooter({text:`• Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})});
-        message.channel.send({embeds: [embed]});
+        message.channel.send({embeds: [embed]});*/
     }
 }
+console.log(`Comando: ${ncomando}: ERROR`.red);
