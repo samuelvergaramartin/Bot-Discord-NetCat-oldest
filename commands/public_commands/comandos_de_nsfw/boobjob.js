@@ -1,9 +1,12 @@
 const Discord = require ('discord.js');
+const color = require('colors');
+var ncomando = "boobjob";
 
 module.exports = {
-    name: "boobjob",
+    name: `${ncomando}`,
     run: async (client, message, args) => {
-        const { MessageEmbed } = require('discord.js');
+        message.channel.send("**:x: | ERROR:** Comando averiado, por favor, reporte el error con el comando `nc/bugreport`.");
+       /* const { MessageEmbed } = require('discord.js');
         let user = message.mentions.users.first() 
   if(!message.channel.nsfw) return message.channel.send(":x: || Los comandos NSWF sólo se pueden usar en un canal NSFW")
   if(!user) return message.channel.send(":x: || Debes mencionar alguien") || client.users.cache.get(args[0]) || message.author;
@@ -15,6 +18,7 @@ module.exports = {
         .setTimestamp()
         .setFooter({text:`• Hecho por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})});
 
-        message.channel.send({embeds: [boobjob]});
+        message.channel.send({embeds: [boobjob]});*/
     }
 }
+console.log(`Comando: ${ncomando}: ERROR`.red);
