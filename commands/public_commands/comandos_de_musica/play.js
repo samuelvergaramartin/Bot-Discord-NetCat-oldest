@@ -36,7 +36,7 @@ module.exports = {
 
     //# Busqueda de video
     let ytInfo = await play.search(args.join(" "));
-    let stream = await play.stream(ytInfo[0].url);
+    let stream = await play.stream(play.YouTubePlayList.url);
 
     //% Agregar cancion a lista re produccion
     const song = { key: uuidv4(), title: ytInfo[0].title, url: ytInfo[0].url };
