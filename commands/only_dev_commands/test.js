@@ -50,44 +50,16 @@ var ncomando = listallcommands.test;
 var estadomodulo = estadomodulosdb.informacion;
 var estadocomando = estadocomandosdb.test;
 var modulodeestecomando = informacion;
-
+const serversmodstatusdb = new db.crearDB('serversmodstatus');
 
 module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
-        function ejecutarcomandoisOK() {
-          /*  message.channel.send("**_///////////_ Canales _///////////_**")
-  message.channel.send(`${message.guild.channels.cache.map(g => g.name).join('\n')}`)
-  message.channel.send("**_///////////_ |=| _///////////_**")
-  message.channel.send(`Total de roles: ${message.guild.channels.cache.size}`);*/
-  let listado = [`${message.guild.channels.cache.map(g => g.name)}`];
-  for (let canales in listado) {
-    message.channel.send(`${listado[canales]}`);
-  }
-   /* let array = ["rojo", "amarillo", "verde"];
-    let argumento = args[0];
-    let i = 0;
-    for (let valores in array) {
-        if(argumento === array[valores]) {
-            message.channel.send("Correcto, pertenece al array.");
-            break;
-        }
-        else {
-            
-            //let max = i++;
-            ++i;
-            
-            if(i === 3) {
-                message.channel.send("Error, no pertenece al array.");
-            break;
-            }
-
-            
-        }
-    }*/
-    
-    
+        async function ejecutarcomandoisOK() {
+       let iddelservidorejecutor = message.guild.id;
+       
+       //const comprobaridservidorejecutor = await 
 }
         if(ncomando == privados.test) {
             if(message.author.id !== idpropietario) {
