@@ -10,6 +10,7 @@ const { create } = require('sourcebin')
 const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
 const socket = require('./sistema/sockets/socket.json');
+const systemstatus = new db.crearDB('systemstatus');
 var nombrepropietario = socket.ownername;
 var idpropietario = socket.ownerid;
 //const mega = require('megadb')
