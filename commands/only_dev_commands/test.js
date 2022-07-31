@@ -46,6 +46,7 @@ var idpropietario = socket.ownerid;
 const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
 
+
 var ncomando = listallcommands.test;
 var estadomodulo = estadomodulosdb.informacion;
 var estadocomando = estadocomandosdb.test;
@@ -56,10 +57,29 @@ module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
+        var estadomodulochistes = estadomodulosdb.chistes;
+var estadomoduloconfiguracion = estadomodulosdb.configuracion;
+var estadomoduloconversacion = estadomodulosdb.conversacion;
+var estadomodulodiversion = estadomodulosdb.diversion;
+var estadomoduloeconomia = estadomodulosdb.economia;
+var estadomodulogifs = estadomodulosdb.gifs;
+var estadomoduloinformacion = estadomodulosdb.informacion;
+var estadomodulojuegos = estadomodulosdb.juegos;
+var estadomodulomoderacion = estadomodulosdb.moderacion;
+var estadomodulomusica = estadomodulosdb.musica;
+var estadomodulonsfw = estadomodulosdb.nsfw;
+var estadomoduloreaccion = estadomodulosdb.reaccion;
+var estadomodulolinks = estadomodulosdb.links;
+var estadomodulohistoria = estadomodulosdb.historia;
+var estadomoduloutiles = estadomodulosdb.utiles;
+var estadomodulovip = estadomodulosdb.vip;
         async function ejecutarcomandoisOK() {
        let iddelservidorejecutor = message.guild.id;
        
-       //const comprobaridservidorejecutor = await 
+       const laidservidorejecutor = await serversmodstatusdb.obtener(iddelservidorejecutor);
+        if(!laidservidorejecutor) {
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${chistes}`, `${modulestatusdb}`)
+        }
 }
         if(ncomando == privados.test) {
             if(message.author.id !== idpropietario) {
