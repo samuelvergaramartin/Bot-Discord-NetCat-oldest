@@ -142,5 +142,6 @@
     "md": "md",
     "say": "say",
     "suggest": "suggest",
-    "fondos": "fondos"
+    "fondos": "fondos",
+    "setmodule": "set-module"
 }
