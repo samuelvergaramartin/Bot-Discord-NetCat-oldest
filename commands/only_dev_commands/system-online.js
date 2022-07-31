@@ -42,6 +42,7 @@ var modulodeestecomando = configuracion;
 module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
+        var estadosistema = await systemstatus.obtener("mode");
         function ejecutarcomandoisOK() {
             systemstatus.set("mode", "online");
             message.channel.send("System Status Mode changed to: online");
