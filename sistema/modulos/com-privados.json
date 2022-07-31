@@ -1,9 +1,17 @@
 {
     "eval": "eval",
+    "exit": "exit",
+    "reboot": "reboot",
+    "servidores": "servidores",
+    "shutdown": "shutdown",
     "systemmaintenance": "system-mode-maintenance",
     "systemonline": "system-mode-online",
     "systemstatus": "system-status",
-    "testsocket": "readsocket",
+    "system": "system",
     "test": "test",
-    "shutdown": "shutdown"
+    "testembed": "testembed",
+    "testhandler": "testhandler",
+    "testsocket": "readsocket"
+    
+    
 }
