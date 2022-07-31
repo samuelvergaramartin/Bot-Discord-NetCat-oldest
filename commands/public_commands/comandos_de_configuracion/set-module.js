@@ -1,0 +1,25 @@
+const Discord = require('discord.js');
+const db = require('megadb');
+const color = require('colors');
+const systemstatus = new db.crearDB('systemstatus');
+const estadosistemadb = require('../../mega_databases/systemstatus.json');
+var estadosistema = estadosistemadb.mode;
+const listallmodules = require('../../sistema/modulos/modulos.json');
+var chistes = listallmodules.modulo1;
+var configuracion = listallmodules.modulo2;
+var conversacion = listallmodules.modulo3;
+var diversion = listallmodules.modulo4;
+var economia = listallmodules.modulo5;
+var gifs = listallmodules.modulo6;
+var informacion = listallmodules.modulo7;
+var juegos = listallmodules.modulo8;
+var moderacion = listallmodules.modulo9;
+var musica = listallmodules.modulo10;
+var nsfw = listallmodules.modulo11;
+var reaccion = listallmodules.modulo12;
+var links = listallmodules.modulo13;
+var historia = listallmodules.modulo14;
+var utiles = listallmodules.modulo15;
+var comandosvip = listallmodules.modulo16;
+
+const listallcommands = require('../../sistema/modulos/listado-comandos.json');
