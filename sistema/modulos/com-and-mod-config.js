@@ -46,3 +46,5 @@ var idpropietario = socket.ownerid;
 
 const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
+
+const serversmodstatusdb = new db.crearDB('serversmodstatus');
