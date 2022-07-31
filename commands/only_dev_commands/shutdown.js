@@ -42,6 +42,7 @@ var modulodeestecomando = configuracion;
 module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
+        var estadosistema = await systemstatus.obtener("mode");
         function ejecutarcomandoisOK() {
             client.destroy();
           /*  message.channel.send("**_///////////_ Canales _///////////_**")
