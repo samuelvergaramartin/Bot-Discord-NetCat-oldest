@@ -49,14 +49,14 @@ module.exports = {
         var estadosistema = await systemstatus.obtener("mode");
             const { MessageEmbed } = require('discord.js');
             const embed = new Discord.MessageEmbed()
-                .setTitle("__Listado de módulos de comandos de DexterBot:__")
+                .setTitle("__Listado de módulos de comandos de NetCat:__")
                 .setDescription(`__**Módulo:**__ ${informacion} :arrow_right: **${modisundermaintenance} (Motivo: Sistema en mantenimiento)**\n__**Módulo:**__ ${moderacion} :arrow_right: **${modisundermaintenance} (Motivo: Sistema en mantenimiento)**\n__**Módulo:**__ ${configuracion} :arrow_right: **${modisundermaintenance} (Motivo: Sistema en mantenimiento)**`)
                 .setColor('ff00d9')
                 .setTimestamp()
                 .setFooter({text:`• Bot creado por ${nombrepropietario} | Pedido por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})})
 
                 const embed2 = new Discord.MessageEmbed()
-                .setTitle("__Listado de módulos de comandos de DexterBot:__")
+                .setTitle("__Listado de módulos de comandos de NetCat:__")
                 .setDescription(`__**Módulo:**__ ${informacion} :arrow_right: **${estadomoduloinformacion}**\n__**Módulo:**__ ${moderacion} :arrow_right: **${estadomodulomoderacion}**\n__**Módulo:**__ ${configuracion} :arrow_right: **${estadomoduloconfiguracion}**`)
                 .setColor('ff00d9')
                 .setTimestamp()
