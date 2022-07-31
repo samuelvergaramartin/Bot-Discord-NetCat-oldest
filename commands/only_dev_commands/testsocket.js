@@ -42,6 +42,7 @@ var modulodeestecomando = informacion;
 module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
+        var estadosistema = await systemstatus.obtener("mode");
         function ejecutarcomandoisOK() {
              var socket = require('../../sistema/sockets/socket.json');
 
