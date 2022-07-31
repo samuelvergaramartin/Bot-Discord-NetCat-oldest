@@ -48,6 +48,7 @@ const ms = require('ms')
 module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
+        var estadosistema = await systemstatus.obtener("mode");
         function ejecutarcomandoisOK() {
 			if(!args[0]) return message.channel.send(':x: | Debes escribir algo para evaluar.\nSintaxis: `lobito/eval <código a evaluar>`\nPor ejemplo: `lobito/eval` message.author.id');
 
