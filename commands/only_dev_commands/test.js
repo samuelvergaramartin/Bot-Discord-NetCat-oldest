@@ -58,27 +58,58 @@ module.exports = {
     run: async(client, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         var estadomodulochistes = estadomodulosdb.chistes;
-var estadomoduloconfiguracion = estadomodulosdb.configuracion;
-var estadomoduloconversacion = estadomodulosdb.conversacion;
-var estadomodulodiversion = estadomodulosdb.diversion;
-var estadomoduloeconomia = estadomodulosdb.economia;
-var estadomodulogifs = estadomodulosdb.gifs;
-var estadomoduloinformacion = estadomodulosdb.informacion;
-var estadomodulojuegos = estadomodulosdb.juegos;
-var estadomodulomoderacion = estadomodulosdb.moderacion;
-var estadomodulomusica = estadomodulosdb.musica;
-var estadomodulonsfw = estadomodulosdb.nsfw;
-var estadomoduloreaccion = estadomodulosdb.reaccion;
-var estadomodulolinks = estadomodulosdb.links;
-var estadomodulohistoria = estadomodulosdb.historia;
-var estadomoduloutiles = estadomodulosdb.utiles;
-var estadomodulovip = estadomodulosdb.vip;
+        var estadomoduloconfiguracion = estadomodulosdb.configuracion;
+        var estadomoduloconversacion = estadomodulosdb.conversacion;
+        var estadomodulodiversion = estadomodulosdb.diversion;
+        var estadomoduloeconomia = estadomodulosdb.economia;
+        var estadomodulogifs = estadomodulosdb.gifs;
+        var estadomoduloinformacion = estadomodulosdb.informacion;
+        var estadomodulojuegos = estadomodulosdb.juegos;
+        var estadomodulomoderacion = estadomodulosdb.moderacion;
+        var estadomodulomusica = estadomodulosdb.musica;
+        var estadomodulonsfw = estadomodulosdb.nsfw;
+        var estadomoduloreaccion = estadomodulosdb.reaccion;
+        var estadomodulolinks = estadomodulosdb.links;
+        var estadomodulohistoria = estadomodulosdb.historia;
+        var estadomoduloutiles = estadomodulosdb.utiles;
+        var estadomodulovip = estadomodulosdb.vip;
         async function ejecutarcomandoisOK() {
+            async function ejecutarcomando() {
+                message.channel.send("Lets go! Lets ready!");
+            }
        let iddelservidorejecutor = message.guild.id;
        
        const laidservidorejecutor = await serversmodstatusdb.obtener(iddelservidorejecutor);
         if(!laidservidorejecutor) {
-            serversmodstatusdb.set(`${iddelservidorejecutor}.${chistes}`, `${modulestatusdb}`)
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${chistes}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${configuracion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${conversacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${diversion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${economia}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${gifs}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${informacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${juegos}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${moderacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${musica}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${nsfw}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${reaccion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${links}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${historia}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${utiles}`, `${modisonline}`);
+            ejecutarcomando();
+
+        }
+        else {
+            var estadosvmodulo = await serversmodstatusdb.obtener(`${iddelservidorejecutor}.${modulodeestecomando}`);
+            if(estadosvmodulo === modisonline) {
+                ejecutarcomando();
+            }
+            if(estadosvmodulo === modisoffline) {
+                message.channel.send(`**:x: | MODULE_OFFLINE:** Módulo de ${modulodeestecomando} apagado\nSi desea usar este comando, encienda el módulo.`);
+            }
+            else {
+                message.channel.send("**:x: | ERROR:** Error detectado! Anti-Crash-System: ACTIVATED!\nPor favor, reporte este error al staff del server o al desarrollador del bot.")
+            }
         }
 }
         if(ncomando == privados.test) {
