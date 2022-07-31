@@ -35,7 +35,7 @@ const modulestatusdb = new db.crearDB('modulestatusdb');
 
 var ncomando = listallcommands.testsocket;
 var estadomodulo = estadomodulosdb.informacion;
-var estadocomando = estadocomandosdb.readsocket;
+var estadocomando = estadocomandosdb.testsocket;
 var modulodeestecomando = informacion;
 
 
