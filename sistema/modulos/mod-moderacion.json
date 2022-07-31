@@ -1,4 +1,13 @@
 {
+    "ban": "ban",
     "clean-all": "clean-all",
-    "kick": "kick"
+    "kick": "kick",
+    "mute": "mute",
+    "mutorol": "muterol",
+    "send": "send",
+    "tempmute": "temp-mute",
+    "unmute": "unmute",
+    "unwarn": "unwarn",
+    "warn": "warn",
+    "warns": "warns"
 }
