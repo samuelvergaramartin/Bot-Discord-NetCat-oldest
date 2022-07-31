@@ -34,9 +34,7 @@ const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
 
 var ncomando = listallcommands.estadomodulos;
-var estadomoduloinformacion = estadomodulosdb.informacion;
-var estadomoduloconfiguracion = estadomodulosdb.configuracion;
-var estadomodulomoderacion = estadomodulosdb.moderacion;
+
 //var estadocomando = estadocomandosdb.modulosinfo;
 
 
@@ -45,6 +43,9 @@ var estadomodulomoderacion = estadomodulosdb.moderacion;
 module.exports = {
     name: `${ncomando}`,
     run: async(client, message, args) => {
+        var estadomoduloinformacion = estadomodulosdb.informacion;
+        var estadomoduloconfiguracion = estadomodulosdb.configuracion;
+        var estadomodulomoderacion = estadomodulosdb.moderacion;
         var estadosistema = await systemstatus.obtener("mode");
             const { MessageEmbed } = require('discord.js');
             const embed = new Discord.MessageEmbed()
