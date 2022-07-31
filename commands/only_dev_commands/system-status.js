@@ -127,6 +127,7 @@ module.exports = {
         }
     }
 }
+var estadosistema = estadosistemadb.mode;
 if(estadosistema === "under-maintenance") {
     console.log(`Comando: ${ncomando}: ${commandisenmantenimiento} (Motivo: Sistema en mantenimiento)`.yellow);
 }
