@@ -1,21 +1,19 @@
 {
   "949740275784376371": {
-    "comandos de chistes": "🟢 ON 🟢",
-    "comandos de configuracion": "🟢 ON 🟢",
-    "comandos de conversacion": "🟢 ON 🟢",
-    "comandos de diversion": "🟢 ON 🟢",
-    "comandos de economía": "🟢 ON 🟢",
-    "comandos de gifs": "🟢 ON 🟢",
-    "comandos de informacion": "🟢 ON 🟢",
-    "comandos de juegos": "🟢 ON 🟢",
-    "comandos de moderacion": "🟢 ON 🟢",
-    "comandos de musica": "🟢 ON 🟢",
-    "comandos de nsfw": "🟢 ON 🟢",
-    "comandos de reaccion": "🟢 ON 🟢",
-    "comandos links netcat": "🟢 ON 🟢",
-    "comandos para hacer chuletas de examenes de historia": "🟢 ON 🟢",
-    "comandos utiles": "🟢 ON 🟢",
-    "vip": "🟢 ON 🟢",
-    "informacion": "🟢 ON 🟢"
+    "chistes": "🟢 ON 🟢",
+    "configuracion": "🟢 ON 🟢",
+    "conversacion": "🟢 ON 🟢",
+    "diversion": "🟢 ON 🟢",
+    "economia": "🟢 ON 🟢",
+    "gifs": "🟢 ON 🟢",
+    "informacion": "🟢 ON 🟢",
+    "juegos": "🟢 ON 🟢",
+    "moderacion": "🟢 ON 🟢",
+    "musica": "🟢 ON 🟢",
+    "nsfw": "🟢 ON 🟢",
+    "reaccion": "🟢 ON 🟢",
+    "netcat": "🟢 ON 🟢",
+    "historia": "🟢 ON 🟢",
+    "utiles": "🟢 ON 🟢"
   }
 }
