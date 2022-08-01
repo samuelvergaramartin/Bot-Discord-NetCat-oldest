@@ -107,7 +107,7 @@ module.exports = {
             if(estadosvmodulo === modisoffline) {
                 message.channel.send(`**:x: | MODULE_OFFLINE:** Módulo de ${modulodeestecomando} apagado\nSi desea usar este comando, encienda el módulo.`);
             }
-            else {
+            if(estadosvmodulo !== modisonline && estadosvmodulo !== modisoffline) {
                 message.channel.send("**:x: | ERROR:** Error detectado! Anti-Crash-System: ACTIVATED!\nPor favor, reporte este error al staff del server o al desarrollador del bot.")
             }
         }
