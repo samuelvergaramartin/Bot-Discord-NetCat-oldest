@@ -76,10 +76,11 @@ module.exports = {
         async function ejecutarcomandoisOK() {
             async function ejecutarcomando() {
                 message.channel.send("Lets go! Lets ready!");
+                
             }
        let iddelservidorejecutor = message.guild.id;
        
-       const laidservidorejecutor = await serversmodstatusdb.obtener(iddelservidorejecutor);
+       let laidservidorejecutor = await serversmodstatusdb.obtener(iddelservidorejecutor);
         if(!laidservidorejecutor) {
             serversmodstatusdb.set(`${iddelservidorejecutor}.${chistes}`, `${modisonline}`);
             serversmodstatusdb.set(`${iddelservidorejecutor}.${configuracion}`, `${modisonline}`);
