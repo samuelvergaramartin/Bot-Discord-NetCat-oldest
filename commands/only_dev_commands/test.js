@@ -48,9 +48,9 @@ const modulestatusdb = new db.crearDB('modulestatusdb');
 
 
 var ncomando = listallcommands.test;
-var estadomodulo = estadomodulosdb.conversacion;
+var estadomodulo = estadomodulosdb.diversion;
 var estadocomando = estadocomandosdb.test;
-var modulodeestecomando = conversacion;
+var modulodeestecomando = diversion;
 const serversmodstatusdb = new db.crearDB('serversmodstatus');
 
 module.exports = {
