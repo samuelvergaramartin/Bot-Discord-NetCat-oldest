@@ -1,0 +1,43 @@
+const Discord = require('discord.js');
+const color = require('colors');
+var ncomando = "new-member-ticket"
+const { ActionRowBuilder, SelectMenuBuilder, ButtonBuilder } = require('discord.js');
+module.exports = {
+    name: `${ncomando}`,
+    run: (netcat, message, args) => {
+        const botprefix = require('../../defaultprefix.json');
+        var prefix = botprefix.prefix;
+        function ejecutarcodigo() {
+            if(message.author.id !== "995661776337240094") {
+                message.channel.send("**⛔ | PERMISSION_DENIED :** No tienes permiso para usar este comando.\nPersonal autorizado: DragonCat#1063")
+            }
+            else {
+                const embed = new Discord.EmbedBuilder()
+            .setTitle("Tickets de soporte para los miembros del servidor que no sean clientes de NetherHosting.")
+            .setDescription("Presione el botón de abajo para crear un ticket de soporte.")
+            .setColor('0xFE2D00')
+    
+            const row = new ActionRowBuilder()
+            .addComponents(
+                new ButtonBuilder()
+                .setCustomId(`${id}`)
+                .setStyle("SUCCESS")
+                .setLabel("Crear ticket")
+                .setEmoji("🎟️")
+            )
+            message.channel.send({ embeds: [embed], components: [row] });
+            }
+        }
+        if(prefix === "nh/") {
+            var id = "member-ticket";
+              ejecutarcodigo();
+          }
+          if(prefix === "pnh/") {
+              var id = "test-member-ticket";
+              ejecutarcodigo();
+              
+          }
+          
+    }
+}
+console.log(`Comando: ${ncomando}: OK`.green);

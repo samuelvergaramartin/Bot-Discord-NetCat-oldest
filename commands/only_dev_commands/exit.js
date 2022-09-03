@@ -4,7 +4,7 @@ var ncomando = "exit";
 
 module.exports = {
     name: "exit",
-    run: async (client, message, args) => {
+    run: async (netcat, message, args) => {
         //message.channel.send("🟡Este comando se encuentra fuera de servicio temporalmente. Disculpe las molestias")
         let ID = ["995661776337240094"]
 

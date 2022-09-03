@@ -2,19 +2,32 @@ const Discord = require('discord.js');
 const db = require('megadb');
 const systemstatus = new db.crearDB('systemstatus');
 const estadosistemadb = require('../../../mega_databases/systemstatus.json');
-
+var estadosistema = estadosistemadb.mode;
 const estadomodulosdb = require('../../../mega_databases/modulestatusdb.json')
 const estadocomandosdb = require('../../../mega_databases/commandstatusdb.json');
 const color = require('colors');
 const listallcommands = require('../../../sistema/modulos/listado-comandos.json');
 const listallmodules = require('../../../sistema/modulos/modulos.json');
-var configuracion = listallmodules.modulo3;
-var informacion = listallmodules.modulo1;
-var moderacion = listallmodules.modulo2;
+var chistes = listallmodules.modulo1;
+var configuracion = listallmodules.modulo2;
+var conversacion = listallmodules.modulo3;
+var diversion = listallmodules.modulo4;
+var economia = listallmodules.modulo5;
+var gifs = listallmodules.modulo6;
+var informacion = listallmodules.modulo7;
+var juegos = listallmodules.modulo8;
+var moderacion = listallmodules.modulo9;
+var musica = listallmodules.modulo10;
+var nsfw = listallmodules.modulo11;
+var reaccion = listallmodules.modulo12;
+var links = listallmodules.modulo13;
+var historia = listallmodules.modulo14;
+var utiles = listallmodules.modulo15;
+var vip = listallmodules.modulo16;
 const modconfiguracion = require('../../../sistema/modulos/mod-configuracion.json');
 const modinformacion = require('../../../sistema/modulos/mod-informacion.json');
 const modmoderacion = require('../../../sistema/modulos/mod-moderacion.json');
-
+const modmusica = require('../../../sistema/modulos/mod-musica.json');
 const comstatus = require('../../../sistema/modulos/com-status-list.json');
 var commandisok = comstatus.green;
 var commandisenmantenimiento = comstatus.yellow;
@@ -33,41 +46,94 @@ var idpropietario = socket.ownerid;
 const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
 
+
 var ncomando = listallcommands.ping;
 var estadomodulo = estadomodulosdb.informacion;
 var estadocomando = estadocomandosdb.ping;
 var modulodeestecomando = informacion;
-
-
-
+const serversmodstatusdb = new db.crearDB('serversmodstatus');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
-        function ejecutarcomandoisOK() {
-            const { MessageEmbed } = require('discord.js');
-            const time = Date.now()
-                const embed = new MessageEmbed()
-                .setTitle("Midiendo latencia...")
-                .setDescription("Discord API: Calculando...\nTiempo de respuesta del bot: Calculando...")
-                .setColor('ff00d9')
-                message.channel.send({ embeds: [embed] }).then(msg => {
-                    let tiempoTotal = time - Date.now()
-                    var resultado = Math.abs(tiempoTotal);
-                    const embed2 = new MessageEmbed()
-                    .setTitle("Pong! 🏓")
-                    .setDescription("`Discord API:` " +client.ws.ping+ " ms\n`Tiempo de respuesta del bot:` " +resultado+ " ms")
-                    .setColor('ff00d9')
-                    msg.edit({ embeds: [embed2] });
-                })
+        var estadomodulochistes = estadomodulosdb.chistes;
+        var estadomoduloconfiguracion = estadomodulosdb.configuracion;
+        var estadomoduloconversacion = estadomodulosdb.conversacion;
+        var estadomodulodiversion = estadomodulosdb.diversion;
+        var estadomoduloeconomia = estadomodulosdb.economia;
+        var estadomodulogifs = estadomodulosdb.gifs;
+        var estadomoduloinformacion = estadomodulosdb.informacion;
+        var estadomodulojuegos = estadomodulosdb.juegos;
+        var estadomodulomoderacion = estadomodulosdb.moderacion;
+        var estadomodulomusica = estadomodulosdb.musica;
+        var estadomodulonsfw = estadomodulosdb.nsfw;
+        var estadomoduloreaccion = estadomodulosdb.reaccion;
+        var estadomodulolinks = estadomodulosdb.links;
+        var estadomodulohistoria = estadomodulosdb.historia;
+        var estadomoduloutiles = estadomodulosdb.utiles;
+        var estadomodulovip = estadomodulosdb.vip;
+        async function ejecutarcomandoisOK() {
+            async function ejecutarcomando() {
+                const { EmbedBuilder } = require('discord.js');
+                const time = Date.now()
+                    const embed = new EmbedBuilder()
+                    .setTitle("Midiendo latencia...")
+                    .setDescription("Discord API: Calculando...\nTiempo de respuesta del bot: Calculando...")
+                    .setColor('0xff00d9')
+                    message.channel.send({ embeds: [embed] }).then(msg => {
+                        let tiempoTotal = time - Date.now()
+                        var resultado = Math.abs(tiempoTotal);
+                        const embed2 = new EmbedBuilder()
+                        .setTitle("Pong! 🏓")
+                        .setDescription("`Discord API:` " +netcat.ws.ping+ " ms\n`Tiempo de respuesta del bot:` " +resultado+ " ms")
+                        .setColor('0xff00d9')
+                        msg.edit({ embeds: [embed2] });
+                    })
+                
+            }
+       let iddelservidorejecutor = message.guild.id;
+       
+       let laidservidorejecutor = await serversmodstatusdb.obtener(iddelservidorejecutor);
+        if(!laidservidorejecutor) {
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${chistes}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${configuracion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${conversacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${diversion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${economia}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${gifs}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${informacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${juegos}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${moderacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${musica}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${nsfw}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${reaccion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${links}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${historia}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${utiles}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${vip}`, `${modisonline}`);
+            ejecutarcomando();
+
         }
+        else {
+            var estadosvmodulo = await serversmodstatusdb.obtener(`${iddelservidorejecutor}.${modulodeestecomando}`);
+            if(estadosvmodulo === modisonline) {
+                ejecutarcomando();
+            }
+            if(estadosvmodulo === modisoffline) {
+                message.channel.send(`**:x: | MODULE_OFFLINE:** Módulo de ${modulodeestecomando} apagado\nSi desea usar este comando, encienda el módulo.`);
+            }
+            if(estadosvmodulo !== modisonline && estadosvmodulo !== modisoffline) {
+                message.channel.send("**:x: | ERROR:** Error detectado! Anti-Crash-System: ACTIVATED!\nPor favor, reporte este error al staff del server o al desarrollador del bot.")
+            }
+        }
+}
         if(ncomando == privados.test) {
             if(message.author.id !== idpropietario) {
                 message.channel.send(`**⛔ | PERMISSION_DENIED :** No tienes permiso para usar este comando, sólo mi creador puede usar este comando.\nPersonal autorizado: ${nombrepropietario}`);
             }
             else {
-              ejecutarcomandoisOK();
+                ejecutarcomandoisOK();
             }
         }
         else {
@@ -84,14 +150,14 @@ module.exports = {
                     if(estadomodulo == modisonline) {
                        
                        if(estadocomando == commandisok) {
-                       ejecutarcomandoisOK();
+                        ejecutarcomandoisOK();
                        }
                        if(estadocomando == commandisenmantenimiento) {
                         if(message.author.id !== idpropietario) {
                             message.channel.send(`**:warning: | COMMAND_UNDER_MAINTENANCE :** Comando en mantenimiento, disculpe las molestias.`);
                         }
                         else {
-                          ejecutarcomandoisOK();
+                            ejecutarcomandoisOK();
                         }
                        }
                        if(estadocomando == commandiserror) {
@@ -148,6 +214,7 @@ else {
     if(estadosistema === "online") {
         
         if(estadomodulo == modisonline) {
+           
            if(estadocomando == commandisok) {
             console.log(`Comando: ${ncomando}: ${commandisok}`.green);
            }
@@ -191,3 +258,4 @@ else {
         console.log(`Comando: ${ncomando}: ${commandiserror}`.red);
     }
 }
+

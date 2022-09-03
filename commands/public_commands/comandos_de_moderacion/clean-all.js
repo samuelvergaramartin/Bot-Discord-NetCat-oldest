@@ -2,19 +2,32 @@ const Discord = require('discord.js');
 const db = require('megadb');
 const systemstatus = new db.crearDB('systemstatus');
 const estadosistemadb = require('../../../mega_databases/systemstatus.json');
-
+var estadosistema = estadosistemadb.mode;
 const estadomodulosdb = require('../../../mega_databases/modulestatusdb.json')
 const estadocomandosdb = require('../../../mega_databases/commandstatusdb.json');
 const color = require('colors');
 const listallcommands = require('../../../sistema/modulos/listado-comandos.json');
 const listallmodules = require('../../../sistema/modulos/modulos.json');
-var configuracion = listallmodules.modulo3;
-var informacion = listallmodules.modulo1;
-var moderacion = listallmodules.modulo2;
+var chistes = listallmodules.modulo1;
+var configuracion = listallmodules.modulo2;
+var conversacion = listallmodules.modulo3;
+var diversion = listallmodules.modulo4;
+var economia = listallmodules.modulo5;
+var gifs = listallmodules.modulo6;
+var informacion = listallmodules.modulo7;
+var juegos = listallmodules.modulo8;
+var moderacion = listallmodules.modulo9;
+var musica = listallmodules.modulo10;
+var nsfw = listallmodules.modulo11;
+var reaccion = listallmodules.modulo12;
+var links = listallmodules.modulo13;
+var historia = listallmodules.modulo14;
+var utiles = listallmodules.modulo15;
+var vip = listallmodules.modulo16;
 const modconfiguracion = require('../../../sistema/modulos/mod-configuracion.json');
 const modinformacion = require('../../../sistema/modulos/mod-informacion.json');
 const modmoderacion = require('../../../sistema/modulos/mod-moderacion.json');
-
+const modmusica = require('../../../sistema/modulos/mod-musica.json');
 const comstatus = require('../../../sistema/modulos/com-status-list.json');
 var commandisok = comstatus.green;
 var commandisenmantenimiento = comstatus.yellow;
@@ -33,30 +46,84 @@ var idpropietario = socket.ownerid;
 const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
 
+
 var ncomando = listallcommands.cleanall;
 var estadomodulo = estadomodulosdb.moderacion;
 var estadocomando = estadocomandosdb.cleanall;
 var modulodeestecomando = moderacion;
-
+const serversmodstatusdb = new db.crearDB('serversmodstatus');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
-        function ejecutarcomandoisOK() {
-            if(!message.member.permissions.has("MANAGE_CHANNELS")) return message.channel.send("No tienes el permiso `MANAGE_CHANNELS`")
-            if (!message.guild.me.permissions.has("MANAGE_CHANNELS")) {
-                return message.channel.send("**❌ | ERROR: **No tengo los permisos necesarios.\n Permisos que me faltan: `MANAGE_CHANNELS`.")
-                }
-    var posicion = message.channel.position
-    
-        message.channel.clone().then((canal) => {
-           
-         message.channel.delete()
-         canal.setPosition(posicion)
-         canal.send("Limpieza completa del canal realizada correctamente!")
-        })
+        var estadomodulochistes = estadomodulosdb.chistes;
+        var estadomoduloconfiguracion = estadomodulosdb.configuracion;
+        var estadomoduloconversacion = estadomodulosdb.conversacion;
+        var estadomodulodiversion = estadomodulosdb.diversion;
+        var estadomoduloeconomia = estadomodulosdb.economia;
+        var estadomodulogifs = estadomodulosdb.gifs;
+        var estadomoduloinformacion = estadomodulosdb.informacion;
+        var estadomodulojuegos = estadomodulosdb.juegos;
+        var estadomodulomoderacion = estadomodulosdb.moderacion;
+        var estadomodulomusica = estadomodulosdb.musica;
+        var estadomodulonsfw = estadomodulosdb.nsfw;
+        var estadomoduloreaccion = estadomodulosdb.reaccion;
+        var estadomodulolinks = estadomodulosdb.links;
+        var estadomodulohistoria = estadomodulosdb.historia;
+        var estadomoduloutiles = estadomodulosdb.utiles;
+        var estadomodulovip = estadomodulosdb.vip;
+        async function ejecutarcomandoisOK() {
+            async function ejecutarcomando() {
+               
+                if(!message.member.permissions.has("ManageChannels")) return message.channel.send("No tienes el permiso `ManageChannels`")
+                if (!message.guild.members.me.permissions.has("ManageChannels")) {
+                    return message.channel.send("**❌ | ERROR: **No tengo los permisos necesarios.\n Permisos que me faltan: `ManageChannels`.")
+                    }
+        var posicion = message.channel.position
         
+            message.channel.clone().then((canal) => {
+               
+             message.channel.delete()
+             canal.setPosition(posicion)
+             canal.send("Limpieza completa del canal realizada correctamente!")
+            })
+            }
+       let iddelservidorejecutor = message.guild.id;
+       
+       let laidservidorejecutor = await serversmodstatusdb.obtener(iddelservidorejecutor);
+        if(!laidservidorejecutor) {
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${chistes}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${configuracion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${conversacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${diversion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${economia}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${gifs}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${informacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${juegos}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${moderacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${musica}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${nsfw}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${reaccion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${links}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${historia}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${utiles}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${vip}`, `${modisonline}`);
+            ejecutarcomando();
+
+        }
+        else {
+            var estadosvmodulo = await serversmodstatusdb.obtener(`${iddelservidorejecutor}.${modulodeestecomando}`);
+            if(estadosvmodulo === modisonline) {
+                ejecutarcomando();
+            }
+            if(estadosvmodulo === modisoffline) {
+                message.channel.send(`**:x: | MODULE_OFFLINE:** Módulo de ${modulodeestecomando} apagado\nSi desea usar este comando, encienda el módulo.`);
+            }
+            if(estadosvmodulo !== modisonline && estadosvmodulo !== modisoffline) {
+                message.channel.send("**:x: | ERROR:** Error detectado! Anti-Crash-System: ACTIVATED!\nPor favor, reporte este error al staff del server o al desarrollador del bot.")
+            }
+        }
 }
         if(ncomando == privados.test) {
             if(message.author.id !== idpropietario) {
@@ -188,10 +255,3 @@ else {
         console.log(`Comando: ${ncomando}: ${commandiserror}`.red);
     }
 }
-/*
-module.exports = {
-    name: `${ncomando}`,
-    run: async (client, message, args) => {
- 
-    }
-}*/

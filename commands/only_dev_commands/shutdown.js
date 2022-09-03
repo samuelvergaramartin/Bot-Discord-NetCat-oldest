@@ -41,10 +41,10 @@ var modulodeestecomando = configuracion;
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         function ejecutarcomandoisOK() {
-            client.destroy();
+            netcat.destroy();
           /*  message.channel.send("**_///////////_ Canales _///////////_**")
   message.channel.send(`${message.guild.channels.cache.map(g => g.name).join('\n')}`)
   message.channel.send("**_///////////_ |=| _///////////_**")

@@ -5,7 +5,7 @@ const { nextSong } = require("../config_music/music-config");
 module.exports = {
   name: "next",
   description: "Pasa a la sigueinte cancion",
-  run: async(client, message, args, discord) =>{
+  run: async(netcat, message, args, discord) =>{
     const mvc = message.member.voice.channel.id;
     const pvc = getVoiceConnection(message.guild.id);
 

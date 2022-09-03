@@ -2,19 +2,32 @@ const Discord = require('discord.js');
 const db = require('megadb');
 const systemstatus = new db.crearDB('systemstatus');
 const estadosistemadb = require('../../../mega_databases/systemstatus.json');
-
+var estadosistema = estadosistemadb.mode;
 const estadomodulosdb = require('../../../mega_databases/modulestatusdb.json')
 const estadocomandosdb = require('../../../mega_databases/commandstatusdb.json');
 const color = require('colors');
 const listallcommands = require('../../../sistema/modulos/listado-comandos.json');
 const listallmodules = require('../../../sistema/modulos/modulos.json');
-var configuracion = listallmodules.modulo3;
-var informacion = listallmodules.modulo1;
-var moderacion = listallmodules.modulo2;
+var chistes = listallmodules.modulo1;
+var configuracion = listallmodules.modulo2;
+var conversacion = listallmodules.modulo3;
+var diversion = listallmodules.modulo4;
+var economia = listallmodules.modulo5;
+var gifs = listallmodules.modulo6;
+var informacion = listallmodules.modulo7;
+var juegos = listallmodules.modulo8;
+var moderacion = listallmodules.modulo9;
+var musica = listallmodules.modulo10;
+var nsfw = listallmodules.modulo11;
+var reaccion = listallmodules.modulo12;
+var links = listallmodules.modulo13;
+var historia = listallmodules.modulo14;
+var utiles = listallmodules.modulo15;
+var vip = listallmodules.modulo16;
 const modconfiguracion = require('../../../sistema/modulos/mod-configuracion.json');
 const modinformacion = require('../../../sistema/modulos/mod-informacion.json');
 const modmoderacion = require('../../../sistema/modulos/mod-moderacion.json');
-
+const modmusica = require('../../../sistema/modulos/mod-musica.json');
 const comstatus = require('../../../sistema/modulos/com-status-list.json');
 var commandisok = comstatus.green;
 var commandisenmantenimiento = comstatus.yellow;
@@ -33,41 +46,95 @@ var idpropietario = socket.ownerid;
 const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
 
+
 var ncomando = listallcommands.kick;
 var estadomodulo = estadomodulosdb.moderacion;
 var estadocomando = estadocomandosdb.kick;
 var modulodeestecomando = moderacion;
-
+const serversmodstatusdb = new db.crearDB('serversmodstatus');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
-        function ejecutarcomandoisOK() {
-            if(!message.member.permissions.has("KICK_MEMBERS")) return message.channel.send("No tienes el permiso `KICK_MEMBERS`")
-            if (!message.guild.me.permissions.has("KICK_MEMBERS")) {
-                return message.channel.send("**❌ | ERROR: **No tengo los permisos necesarios.\n Permisos que me faltan: `KICK_MEMBERS`.")
-                }
-    
-        let user = message.mentions.members.first();
-      
-        let Kickreason = args.join(' ').slice(1);
+        var estadomodulochistes = estadomodulosdb.chistes;
+        var estadomoduloconfiguracion = estadomodulosdb.configuracion;
+        var estadomoduloconversacion = estadomodulosdb.conversacion;
+        var estadomodulodiversion = estadomodulosdb.diversion;
+        var estadomoduloeconomia = estadomodulosdb.economia;
+        var estadomodulogifs = estadomodulosdb.gifs;
+        var estadomoduloinformacion = estadomodulosdb.informacion;
+        var estadomodulojuegos = estadomodulosdb.juegos;
+        var estadomodulomoderacion = estadomodulosdb.moderacion;
+        var estadomodulomusica = estadomodulosdb.musica;
+        var estadomodulonsfw = estadomodulosdb.nsfw;
+        var estadomoduloreaccion = estadomodulosdb.reaccion;
+        var estadomodulolinks = estadomodulosdb.links;
+        var estadomodulohistoria = estadomodulosdb.historia;
+        var estadomoduloutiles = estadomodulosdb.utiles;
+        var estadomodulovip = estadomodulosdb.vip;
+        async function ejecutarcomandoisOK() {
+            async function ejecutarcomando() {
+                if(!message.member.permissions.has("KickMembers")) return message.channel.send("No tienes el permiso `KickMembers`")
+                if (!message.guild.members.me.permissions.has("KickMembers")) {
+                    return message.channel.send("**❌ | ERROR: **No tengo los permisos necesarios.\n Permisos que me faltan: `KickMembers`.")
+                    }
         
+            let user = message.mentions.members.first();
+          
+            let Kickreason = args.join(' ').slice(1);
+            
+            
+           if(!message.member.permissions.has("KickMembers"))return message.channel.send("No tienes permisos suficientes!")
+            
+            if(!user) return message.channel.send("Debes mencionar a alguien!")
         
-       if(!message.member.permissions.has("KICK_MEMBERS"))return message.channel.send("No tienes permisos suficientes!")
+            if(message.member.roles.highest.comparePositionTo(user.roles.highest) <= 0) return message.channel.send("No puedes expulsar a una persona de un rol igual o superior al tuyo")
         
-        if(!user) return message.channel.send("Debes mencionar a alguien!")
-    
-        if(message.member.roles.highest.comparePositionTo(user.roles.highest) <= 0) return message.channel.send("No puedes expulsar a una persona de un rol igual o superior al tuyo")
-    
-        if(user === message.author) return message.channel.send("No te puedes expulsar a ti mismo!")
-    
-        if(!Kickreason) return message.channel.send("Debes escribir una razon!")
-    
-        message.channel.send("Usuario expulsado correctamente")
-    //if(message.deletable) message.delete()
-        user.kick({ reason:Kickreason}) 
-    
+            if(user === message.author) return message.channel.send("No te puedes expulsar a ti mismo!")
+        
+            if(!Kickreason) return message.channel.send("Debes escribir una razon!")
+        
+            message.channel.send("Usuario expulsado correctamente")
+        //if(message.deletable) message.delete()
+            user.kick({ reason:Kickreason}) 
+                
+            }
+       let iddelservidorejecutor = message.guild.id;
+       
+       let laidservidorejecutor = await serversmodstatusdb.obtener(iddelservidorejecutor);
+        if(!laidservidorejecutor) {
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${chistes}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${configuracion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${conversacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${diversion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${economia}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${gifs}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${informacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${juegos}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${moderacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${musica}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${nsfw}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${reaccion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${links}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${historia}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${utiles}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${vip}`, `${modisonline}`);
+            ejecutarcomando();
+
+        }
+        else {
+            var estadosvmodulo = await serversmodstatusdb.obtener(`${iddelservidorejecutor}.${modulodeestecomando}`);
+            if(estadosvmodulo === modisonline) {
+                ejecutarcomando();
+            }
+            if(estadosvmodulo === modisoffline) {
+                message.channel.send(`**:x: | MODULE_OFFLINE:** Módulo de ${modulodeestecomando} apagado\nSi desea usar este comando, encienda el módulo.`);
+            }
+            if(estadosvmodulo !== modisonline && estadosvmodulo !== modisoffline) {
+                message.channel.send("**:x: | ERROR:** Error detectado! Anti-Crash-System: ACTIVATED!\nPor favor, reporte este error al staff del server o al desarrollador del bot.")
+            }
+        }
 }
         if(ncomando == privados.test) {
             if(message.author.id !== idpropietario) {

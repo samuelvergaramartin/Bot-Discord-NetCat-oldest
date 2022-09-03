@@ -56,7 +56,7 @@ const prefixdb = new db.crearDB('setprefixdb');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         var estadomodulochistes = estadomodulosdb.chistes;
         var estadomoduloconfiguracion = estadomodulosdb.configuracion;
@@ -77,7 +77,7 @@ module.exports = {
         async function ejecutarcomandoisOK() {
             async function ejecutarcomando() {
                 
-                var perms = message.member.permissions.has("ADMINISTRATOR")
+                var perms = message.member.permissions.has("Administrator")
         
                 if(!perms) return message.channel.send("No tienes suficientes permisos")
               
@@ -299,7 +299,7 @@ const prefixdb = new db.crearDB('setprefixdb');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         function ejecutarcomandoisOK() {
             

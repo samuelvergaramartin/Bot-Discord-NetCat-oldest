@@ -41,7 +41,7 @@ var modulodeestecomando = informacion;
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estado = await systemstatus.obtener("mode");
         function ejecutarcomandoisOK() {
             

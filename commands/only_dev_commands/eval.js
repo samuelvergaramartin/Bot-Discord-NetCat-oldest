@@ -39,7 +39,7 @@ var estadocomando = estadocomandosdb.eval;
 var modulodeestecomando = informacion;
 
 const { create } = require('sourcebin')
-const { Client, MessageEmbed, Intents } = require("discord.js");
+const { Client, EmbedBuilder, Intents } = require("discord.js");
 //const mega = require('megadb'), quick = require('quick.db');
 const ms = require('ms')
 
@@ -47,7 +47,7 @@ const ms = require('ms')
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         function ejecutarcomandoisOK() {
 			if(!args[0]) return message.channel.send(':x: | Debes escribir algo para evaluar.\nSintaxis: `lobito/eval <código a evaluar>`\nPor ejemplo: `lobito/eval` message.author.id');
@@ -68,9 +68,9 @@ module.exports = {
 		
 			let tiempo1 = Date.now();
 		//:stopwatch:
-			const edit = new Discord.MessageEmbed()
+			const edit = new Discord.EmbedBuilder()
 				.setDescription(':stopwatch: Evaluando...')
-				.setColor('#7289DA');
+				.setColor('0x7289DA');
 			message.channel.send({ embeds: [edit] }).then(async pito => {
 				try {
 					let code = args.join(' ');
@@ -86,7 +86,7 @@ module.exports = {
 					if(txt.length >= 1024) {
 						create([
 							{
-								content: `- - - Eval - - -\n\n${txt.replace(client.token, 'Wow, un token').replace(/(bot)/g, 'bot')}`,
+								content: `- - - Eval - - -\n\n${txt.replace(netcat.token, 'Wow, un token').replace(/(bot)/g, 'bot')}`,
 								language: 'javascript'
 							},
 						],
@@ -94,44 +94,38 @@ module.exports = {
 							title: 'Eval',
 							description: 'El eval es muy largo'
 						}).then(owo => {
-							const embed = new Discord.MessageEmbed()
-							.addField(':inbox_tray: Entrada', `\`\`\`js\n${code.slice(0, 748)}\n\`\`\``)
-							.addField(
-								':outbox_tray: Salida',
-								`\`El codigo es muy largo, link:\` ${owo.url}`
-							)
-							.addField(
-								':file_folder: Tipo',
-								`\`\`\`js\n${mayuscula(tipo)}\n\`\`\``,
-								true
-							)
-							.addField(
-								':stopwatch: Tiempo',
-								`\`\`\`fix\n${Date.now() - tiempo1}ms\n\`\`\``,
-								true
-							)
-							.setColor('#7289DA');
+							const embed = new Discord.EmbedBuilder()
+                            .addFields([
+                                {  name: ':inbox_tray: Entrada', value: `\`\`\`js\n${code.slice(0, 748)}\n\`\`\`` },
+                                {  name: ':outbox_tray: Salida', value: `\`El codigo es muy largo, link:\` ${owo.url}` },
+                                {  name: ':file_folder: Tipo', value: `\`\`\`js\n${mayuscula(tipo)}\n\`\`\`` },
+                                {  name: ':stopwatch: Tiempo', value: `\`\`\`fix\n${Date.now() - tiempo1}ms\n\`\`\`` },
+                            ])
+							.setColor('0x7289DA');
 							
 		pito.edit({ embeds: [embed] });
 						});
 					} else {
-						const embed = new Discord.MessageEmbed()
-							.addField(':inbox_tray: Entrada', `\`\`\`js\n${code.slice(0, 748)}\n\`\`\``)
-							.addField(':outbox_tray: Salida', `\`\`\`js\n${txt.replace(client.token, '🔴|No tengo la autoricacion para revelar eso.').replace(/(bot)/g, 'bot')}\n\`\`\``)
-							.addField(':file_folder: Tipo', `\`\`\`js\n${mayuscula(tipo)}\n\`\`\``, true)
-							.addField(':stopwatch: Tiempo', `\`\`\`fix\n${Date.now() - tiempo1}ms\n\`\`\``, true)
-							.setColor('#7289DA');
+						const embed = new Discord.EmbedBuilder()
+                        .addFields([
+                            {  name: ':inbox_tray: Entrada', value: `\`\`\`js\n${code.slice(0, 748)}\n\`\`\`` },
+                            {  name: ':outbox_tray: Salida', value: `\`\`\`js\n${txt.replace(netcat.token, '🔴|No tengo la autoricacion para revelar eso.').replace(/(bot)/g, 'bot')}\n\`\`\`` },
+                            {  name: ':file_folder: Tipo', value: `\`\`\`js\n${mayuscula(tipo)}\n\`\`\`` },
+                            {  name: ':stopwatch: Tiempo', value: `\`\`\`fix\n${Date.now() - tiempo1}ms\n\`\`\`` },
+                        ])
+						.setColor('0x7289DA');
 		pito.edit({ embeds: [embed] });
 					}
 				} catch (err) {
 					let code = args.join(' ');
-					const embed = new Discord.MessageEmbed()
-						.setAuthor({name:`Error en el eval`,iconURL: client.user.displayAvatarURL({ dynamic: true })})
-						
-						.addField(':inbox_tray: Entrada', `\`\`\`js\n${code.slice(0, 748)}\n\`\`\``)
-						.addField(':outbox_tray: Salida', `\`\`\`js\n${err}\n\`\`\``)
-						.addField(':file_folder: Tipo', `\`\`\`js\nError\n\`\`\``)
-						.setColor('RED');
+					const embed = new Discord.EmbedBuilder()
+						.setAuthor({name:`Error en el eval`,iconURL: netcat.user.displayAvatarURL({ dynamic: true })})
+						.addFields([
+                            {  name: ':inbox_tray: Entrada', value: `\`\`\`js\n${code.slice(0, 748)}\n\`\`\`` },
+                            {  name: ':outbox_tray: Salida', value: `\`\`\`js\n${err}\n\`\`\`` },
+                            {  name: ':file_folder: Tipo', value: `\`\`\`js\nError\n\`\`\`` },
+                        ])
+						.setColor('0xFE2D00');
 		pito.edit({ embeds: [embed] });
 				};
 			});

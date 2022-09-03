@@ -4,5 +4,14 @@
     "createprivatechannellock": "create-privatechannel-lock",
     "createprivatechannel": "create-privatechannel",
     "deletechannel": "delete-channel",
-    "setprefix": "setprefix"
+    "setprefix": "setprefix",
+    "setwelcomechannel": "set-welcome-channel",
+    "setwelcomemessagedefault": "set-welcome-message-default",
+    "setwelcomemessage": "set-welcome-message",
+    "deletewelcomechannel": "delete-welcome-channel",
+    "setgoodbyechannel": "set-goodbye-channel",
+    "setgoodbyemessagedefault": "set-goodbye-message-default",
+    "setgoodbyemessage": "set-goodbye-message",
+    "deletegoodbyechannel": "delete-goodbye-channel",
+    "setticketcategory": "set-ticket-category"
 }

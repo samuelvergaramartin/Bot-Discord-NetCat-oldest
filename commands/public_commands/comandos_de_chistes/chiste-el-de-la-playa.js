@@ -55,7 +55,7 @@ const serversmodstatusdb = new db.crearDB('serversmodstatus');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         var estadomodulochistes = estadomodulosdb.chistes;
         var estadomoduloconfiguracion = estadomodulosdb.configuracion;
@@ -252,7 +252,7 @@ else {
 
 module.exports = {
     name: "chiste-el-de-la-playa",
-    run: async (client, message, args) => {
+    run: async (netcat, message, args) => {
         
     }
 }*/

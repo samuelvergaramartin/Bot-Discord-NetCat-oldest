@@ -5,7 +5,7 @@ const { previousSong } = require("../config_music/music-config");
 module.exports = {
   name: "prev",
   description: "regresa de cancion",
-  run: async(client, message, args, discord) =>{
+  run: async(netcat, message, args, discord) =>{
     const mvc = message.member.voice.channel.id;
     const pvc = getVoiceConnection(message.guild.id);
 

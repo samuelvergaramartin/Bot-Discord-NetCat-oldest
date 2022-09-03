@@ -55,7 +55,7 @@ const serversmodstatusdb = new db.crearDB('serversmodstatus');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         var estadomodulochistes = estadomodulosdb.chistes;
         var estadomoduloconfiguracion = estadomodulosdb.configuracion;
@@ -75,12 +75,12 @@ module.exports = {
         var estadomodulovip = estadomodulosdb.vip;
         async function ejecutarcomandoisOK() {
             async function ejecutarcomando() {
-                let user = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
-    const { MessageEmbed } = require('discord.js');
+                let user = message.mentions.users.first() || netcat.users.cache.get(args[0]) || message.author;
+    const { EmbedBuilder } = require('discord.js');
   
-  const ff = new MessageEmbed()
+  const ff = new EmbedBuilder()
         .setTitle(`${message.author.username} le dedica una F a ${user.username}`)
-        .setColor('RANDOM')
+        .setColor('0xff00d9')
         .setImage("https://images-ext-1.discordapp.net/external/bEgp1XQu2GM_xLGkZTJ7Mrzj_BXaU7TOuS945oKkMJs/https/media.tenor.com/images/4e853c084da94c0e43a3179e1af344b7/tenor.gif")
         .setTimestamp()
         .setFooter({text:`• F por ${user.username}`,iconURL: message.author.displayAvatarURL({format: "png"})});
@@ -256,7 +256,7 @@ else {
 
 module.exports = {
     name: "f-por",
-    run: async (client, message, args) => {
+    run: async (netcat, message, args) => {
     
     }
 }*/

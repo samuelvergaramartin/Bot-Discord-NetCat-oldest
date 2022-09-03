@@ -3,7 +3,7 @@ const { getVoiceConnection } = require("@discordjs/voice");
 module.exports = {
   name: "resume",
   description: "Reproducir musica",
-  run: async(client, message, args, discord) =>{
+  run: async(netcat, message, args, discord) =>{
     const mvc = message.member.voice.channel.id;
     const pvc = getVoiceConnection(message.guild.id);
     if (!pvc) return message.reply("No se esta reproduciendo musica");

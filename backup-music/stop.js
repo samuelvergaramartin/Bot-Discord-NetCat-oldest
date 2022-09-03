@@ -3,7 +3,7 @@ const { queue } = require("../config_music/music-config");
 module.exports = {
   name: "stop",
   description: "Para y desconecta el bot de musica",
-  run: async(client, message, args, discord) =>{
+  run: async(netcat, message, args, discord) =>{
     const mvc = message.member.voice.channel.id;
     const pvc = getVoiceConnection(message.guild.id);
 

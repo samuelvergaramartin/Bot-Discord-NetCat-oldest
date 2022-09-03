@@ -55,7 +55,7 @@ const serversmodstatusdb = new db.crearDB('serversmodstatus');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         var estadomodulochistes = estadomodulosdb.chistes;
         var estadomoduloconfiguracion = estadomodulosdb.configuracion;
@@ -75,9 +75,9 @@ module.exports = {
         var estadomodulovip = estadomodulosdb.vip;
         async function ejecutarcomandoisOK() {
             async function ejecutarcomando() {
-                if(!message.member.permissions.has("MANAGE_CHANNELS")) return message.channel.send("No tienes el permiso `MANAGE_CHANNELS`")
-                if (!message.guild.me.permissions.has("MANAGE_CHANNELS")) {
-                    return message.channel.send("**❌ | ERROR: **No tengo los permisos necesarios.\n Permisos que me faltan: `MANAGE_CHANNELS`.")
+                if(!message.member.permissions.has("ManageChannels")) return message.channel.send("No tienes el permiso `ManageChannels`")
+                if (!message.guild.members.me.permissions.has("ManageChannels")) {
+                    return message.channel.send("**❌ | ERROR: **No tengo los permisos necesarios.\n Permisos que me faltan: `ManageChannels`.")
                     }
                 message.author.send(":white_check_mark: || Canal eliminado correctamente")
           message.channel.delete();
@@ -252,7 +252,7 @@ else {
 
 module.exports = {
     name: "delete-channel",
-    run: async (client, message, args) => {
+    run: async (netcat, message, args) => {
        
     }
 }*/

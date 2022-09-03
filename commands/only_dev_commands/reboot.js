@@ -8,12 +8,12 @@ var idpropietario = socket.ownerid;
 
 module.exports = {
     name: `${ncomando}`,
-    run: (client, message, args) => {
+    run: (netcat, message, args) => {
         if(message.author.id !== "995661776337240094") {
             message.channel.send(`**⛔ | PERMISSION_DENIED :** No tienes permiso para usar este comando, sólo mi creador puede usar este comando.\nPersonal autorizado: ${nombrepropietario}`);
         }
         else {
-            const comds = client.comandos.size;
+            const comds = netcat.comandos.size;
 
             const fs = require('fs')
             
@@ -29,7 +29,7 @@ module.exports = {
             
                     const command = require(`../../comandos/${folder}/${file}`);
             
-            client.comandos.set(command.name, command)
+            netcat.comandos.set(command.name, command)
             
             }
 
@@ -41,9 +41,9 @@ module.exports = {
             message.channel.send(`
             🔄 |Reinicio! 
             
-        ❗|Comandos Nuevos:\`\`\`${client.comandos.size - comds} \`\`\`
+        ❗|Comandos Nuevos:\`\`\`${netcat.comandos.size - comds} \`\`\`
         :warning: |Ejecutor del reinicio:\`\`\`${message.author.username} \`\`\`
-         ℹ️ |Soy:\`\`\`${client.user.username}! \`\`\`
+         ℹ️ |Soy:\`\`\`${netcat.user.username}! \`\`\`
             `)  
         }
     }

@@ -52,10 +52,11 @@ var estadomodulo = estadomodulosdb.configuracion;
 var estadocomando = estadocomandosdb.createprivatechannellock;
 var modulodeestecomando = configuracion;
 const serversmodstatusdb = new db.crearDB('serversmodstatus');
+const { ChannelType, PermissionsBitField } = require('discord.js');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         var estadomodulochistes = estadomodulosdb.chistes;
         var estadomoduloconfiguracion = estadomodulosdb.configuracion;
@@ -76,9 +77,9 @@ module.exports = {
         async function ejecutarcomandoisOK() {
             async function ejecutarcomando() {
                 let everyone = message.guild.roles.cache.find(rol => rol.name == "@everyone");
-        if(!message.member.permissions.has("MANAGE_CHANNELS")) return message.channel.send("No tienes el permiso `MANAGE_CHANNELS`")
-        if (!message.guild.me.permissions.has("MANAGE_CHANNELS")) {
-            return message.channel.send("**❌ | ERROR: **No tengo los permisos necesarios.\n Permisos que me faltan: `MANAGE_CHANNELS`.")
+        if(!message.member.permissions.has("ManageChannels")) return message.channel.send("No tienes el permiso `ManageChannels`")
+        if (!message.guild.members.me.permissions.has("ManageChannels")) {
+            return message.channel.send("**❌ | ERROR: **No tengo los permisos necesarios.\n Permisos que me faltan: `ManageChannels`.")
             }
 
         //let (e) = message.guild.channels.cache.find(canal => canal.name == `canal${message.author.username}`)
@@ -89,18 +90,21 @@ module.exports = {
         }
 
         if(nombre){
-            message.guild.channels.create(nombre, {
+            message.guild.channels.create({
+                name: `${nombre}`,
+                type: ChannelType.GuildText,
                 permissionOverwrites: [
                     {
                         id: everyone.id,
-                        deny: ["VIEW_CHANNEL", "SEND_MESSAGES"]
+                        deny: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages],
                     },
                     {
                         id: message.author.id,
-                        allow: ["VIEW_CHANNEL"]
-                    }
-                ]
-            })
+                        allow: [PermissionsBitField.Flags.ViewChannel],
+                    },
+                ],
+            });
+          
             message.channel.send(`✅ || Canal creado satisfactoriamente!\n__Nombre del canal creado__: **${nombre}**.\n__Tipo de canal__: **PRIVADO**.\n__Permiso para enviar mensajes__: **DENEGADO PARA "Everyone". **`)
             
         }
@@ -276,7 +280,7 @@ else {
 
 module.exports = {
     name: "create-privatechannel-lock",
-    run: async (client, message, args) => {
+    run: async (netcat, message, args) => {
         
 
         

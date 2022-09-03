@@ -33,7 +33,7 @@ var ncomando = listallcommands.setmodule;
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         var serverid = message.guild.id;
 
@@ -71,9 +71,9 @@ module.exports = {
         const argumentonombremodulo = args[0]
         const argumentoestadomodulo = args[1]
         
-        var perms = message.member.permissions.has("ADMINISTRATOR")
+        var perms = message.member.permissions.has("Administrator")
         
-        if(!perms) return message.channel.send("**:x: | ERROR:** No tienes suficientes permisos.\nPermisos necesarios: **ADMINISTRATOR**");
+        if(!perms) return message.channel.send("**:x: | ERROR:** No tienes suficientes permisos.\nPermisos necesarios: **Administrator**");
 
         async function ejecutarcomandoisOK() {
             if(argumentoestadomodulo === valortrue || argumentoestadomodulo === valoruno) {

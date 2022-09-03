@@ -4,7 +4,7 @@ const { getVoiceConnection } = require("@discordjs/voice");
 module.exports = {
   name: "queue",
   description: "Ver lista de reproduccion",
-  run: async(client, message, args, discord) =>{
+  run: async(netcat, message, args, discord) =>{
     const pvc = getVoiceConnection(message.guild.id);
     if (!pvc) return message.reply("No se esta reproduciendo musica");
 

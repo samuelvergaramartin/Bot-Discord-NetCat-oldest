@@ -9,5 +9,6 @@
     "unmute": "unmute",
     "unwarn": "unwarn",
     "warn": "warn",
-    "warns": "warns"
+    "warns": "warns",
+    "newticket": "new-ticket"
 }

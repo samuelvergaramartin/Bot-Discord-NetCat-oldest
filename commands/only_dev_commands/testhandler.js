@@ -3,16 +3,17 @@ var colors = require('colors');
 var ncomando = "testhandler";
 const db = require('megadb');
 const testdb = new db.crearDB('testdatabase')
+//const netcat = require('./core/netcat');
 module.exports = {
     name: `${ncomando}`,
-    run: async (client, message, args) => {
+    run: async (netcat, message, args) => {
         if(message.author.id !== "995661776337240094") return message.channel.send("**⛔ | PERMISSION_DENIED :** No tienes permiso para usar este comando, sólo el mi creador puede usar este comando.\nPersonal autorizado: DragonCat#1063");
 
         //--------------------------------------------------  
         /*let ejecutorcomando = message.author.id;
         var estadorespuesta = "No respondida";
         message.channel.send("Mensaje de entrada, por favor.")
-        client.on("messageCreate", async message => {
+        netcat.on("messageCreate", async message => {
             if(message.author.bot) return;
             if(message.channel.type === "dm") return;
             if(!ejecutorcomando) return;
@@ -52,7 +53,7 @@ module.exports = {
        //------------------------------------------------------------------------------
        // 
         
-        //client.destroy();
+        //netcat.destroy();
       /*  let yo = message.author;
         let dueño = message.guild.ownerId;
         let eldueño = `<@${dueño}>`;
@@ -80,7 +81,7 @@ module.exports = {
         let mirole = mirol.id;
         
         if(canalseleccionado) {
-            //canalseleccionado.permissionOverwrites.create(mirol, { VIEW_CHANNEL: true });
+            //canalseleccionado.permissionOverwrites.create(mirol, { ViewChannel: true });
               canalseleccionado.permissionOverwrites.delete(mirol);
         }
         message.channel.send("OK")
@@ -90,13 +91,13 @@ module.exports = {
         }*/
             //message.guild.channels.create(nombre);
         
-        //let sv = client.guilds.cache.get("900856291461824562")
+        //let sv = netcat.guilds.cache.get("900856291461824562")
        // let control = sv.channels.cache.get("948375961370513438")
         /*control.send(`Se ha activado el sistema de control remoto.\nConexión entrante: Servidor: ${message.guild.name}: Autorizado para controlar mediante control remoto el servidor ${sv.name}`)
         control.send("Esperando ordenes para ejecutar...")
         message.channel.send("Conexión establecida correctamente con el servidor remoto.")
         let nombre = "control-remoto"
-        control.send("Orden recibida: ```js\nlet sv = client.guilds.cache.get('900856291461824562')\nlet control = sv.channels.cache.get('948375961370513438')\nlet nombre = 'control-remoto'\nlet canalcreado = sv.channels.cache.find(canal => canal.name == `${nombre}`);\nif(canalcreado){\n    message.channel.send(`Nombre del canal creado: ${canalcreado.name}.\n ID del canal creado: ${canalcreado.id}.\n Mención del canal creado: <#${canalcreado.id}> `)\n    control.send(`@everyone , el canal creado es: <#${canalcreado.id}>`)\n     canalcreado.send(`Hola! Probando...probando...`)\n}\nmessage.channel.send(`Orden ejecutada correctamente`)\ncontrol.send(`Orden ejecutada correctamente`)```\nEjecutando...")
+        control.send("Orden recibida: ```js\nlet sv = netcat.guilds.cache.get('900856291461824562')\nlet control = sv.channels.cache.get('948375961370513438')\nlet nombre = 'control-remoto'\nlet canalcreado = sv.channels.cache.find(canal => canal.name == `${nombre}`);\nif(canalcreado){\n    message.channel.send(`Nombre del canal creado: ${canalcreado.name}.\n ID del canal creado: ${canalcreado.id}.\n Mención del canal creado: <#${canalcreado.id}> `)\n    control.send(`@everyone , el canal creado es: <#${canalcreado.id}>`)\n     canalcreado.send(`Hola! Probando...probando...`)\n}\nmessage.channel.send(`Orden ejecutada correctamente`)\ncontrol.send(`Orden ejecutada correctamente`)```\nEjecutando...")
         let canalcreado = sv.channels.cache.find(canal => canal.name == `${nombre}`);
         if(canalcreado){
             message.channel.send(`Nombre del canal creado: ${canalcreado.name}\nID del canal creado: ${canalcreado.id}\nMención del canal creado: <#${canalcreado.id}>`)

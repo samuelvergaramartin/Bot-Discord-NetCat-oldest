@@ -2,19 +2,32 @@ const Discord = require('discord.js');
 const db = require('megadb');
 const systemstatus = new db.crearDB('systemstatus');
 const estadosistemadb = require('../../../mega_databases/systemstatus.json');
-
+var estadosistema = estadosistemadb.mode;
 const estadomodulosdb = require('../../../mega_databases/modulestatusdb.json')
 const estadocomandosdb = require('../../../mega_databases/commandstatusdb.json');
 const color = require('colors');
 const listallcommands = require('../../../sistema/modulos/listado-comandos.json');
 const listallmodules = require('../../../sistema/modulos/modulos.json');
-var configuracion = listallmodules.modulo3;
-var informacion = listallmodules.modulo1;
-var moderacion = listallmodules.modulo2;
+var chistes = listallmodules.modulo1;
+var configuracion = listallmodules.modulo2;
+var conversacion = listallmodules.modulo3;
+var diversion = listallmodules.modulo4;
+var economia = listallmodules.modulo5;
+var gifs = listallmodules.modulo6;
+var informacion = listallmodules.modulo7;
+var juegos = listallmodules.modulo8;
+var moderacion = listallmodules.modulo9;
+var musica = listallmodules.modulo10;
+var nsfw = listallmodules.modulo11;
+var reaccion = listallmodules.modulo12;
+var links = listallmodules.modulo13;
+var historia = listallmodules.modulo14;
+var utiles = listallmodules.modulo15;
+var vip = listallmodules.modulo16;
 const modconfiguracion = require('../../../sistema/modulos/mod-configuracion.json');
 const modinformacion = require('../../../sistema/modulos/mod-informacion.json');
 const modmoderacion = require('../../../sistema/modulos/mod-moderacion.json');
-
+const modmusica = require('../../../sistema/modulos/mod-musica.json');
 const comstatus = require('../../../sistema/modulos/com-status-list.json');
 var commandisok = comstatus.green;
 var commandisenmantenimiento = comstatus.yellow;
@@ -33,57 +46,112 @@ var idpropietario = socket.ownerid;
 const commandstatusdb = new db.crearDB('commandstatusdb');
 const modulestatusdb = new db.crearDB('modulestatusdb');
 
+
 var ncomando = listallcommands.serverinfo;
 var estadomodulo = estadomodulosdb.informacion;
 var estadocomando = estadocomandosdb.serverinfo;
 var modulodeestecomando = informacion;
-
+const serversmodstatusdb = new db.crearDB('serversmodstatus');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
+        var estadomodulochistes = estadomodulosdb.chistes;
+        var estadomoduloconfiguracion = estadomodulosdb.configuracion;
+        var estadomoduloconversacion = estadomodulosdb.conversacion;
+        var estadomodulodiversion = estadomodulosdb.diversion;
+        var estadomoduloeconomia = estadomodulosdb.economia;
+        var estadomodulogifs = estadomodulosdb.gifs;
+        var estadomoduloinformacion = estadomodulosdb.informacion;
+        var estadomodulojuegos = estadomodulosdb.juegos;
+        var estadomodulomoderacion = estadomodulosdb.moderacion;
+        var estadomodulomusica = estadomodulosdb.musica;
+        var estadomodulonsfw = estadomodulosdb.nsfw;
+        var estadomoduloreaccion = estadomodulosdb.reaccion;
+        var estadomodulolinks = estadomodulosdb.links;
+        var estadomodulohistoria = estadomodulosdb.historia;
+        var estadomoduloutiles = estadomodulosdb.utiles;
+        var estadomodulovip = estadomodulosdb.vip;
         async function ejecutarcomandoisOK() {
-            const { MessageEmbed } = require('discord.js');
-            var server = message.guild;
-            const owner = await message.guild.fetchOwner();
-            var nv = server.verificationLevel;
-            var canales = server.channels.cache;
-            if(nv === "NONE"){
-                var nv = "⚪ Ninguno"
-            } 
-            if(nv === "LOW"){
-                var nv = "🟢 Bajo"
-            } 
-            if(nv === "MEDIUM"){
-                var nv = "🟡 Medio"
-            } 
-            if(nv === "HIGH"){
-                var nv = "🟠 Alto"
-            } 
-            if(nv === "VERY_HIGH"){
-                var nv = "🔴 Muy alto"
-            } 
-          
-            const embed = new MessageEmbed()
-                 .setThumbnail(server.iconURL())
-                 .setAuthor({name: server.name,iconURL: server.iconURL()})
-                 .addField("ID del Servidor", `${server.id}`, true)
-                 .addField('Número de Bots', `${server.members.cache.filter(m => m.user.bot).size}`, true)
-                 .addField('Creado el', `${server.createdAt}`, true)
-                 .addField('Dueño del Servidor', `${owner}`, true)
-                 .addField('Número de Miembros',` ${server.memberCount}`, true)
-                 .addField('Número de Roles',` ${server.roles.cache.size}`, true)
-                 .addField("Número de emojis del servidor", `${server.emojis.cache.size}`, true)
-                 .addField("Boosts", `${server.premiumSubscriptionCount.toString()}`, true)
-                 .addField("Nivel de verificación del servidor", `${nv}`, true)
-                 .addField("Número total de canales", `${canales.size}`, true)
-                 .addField("Número de canales de texto", `${canales.filter(channel => channel.type === "GUILD_TEXT").size}`, true)
-                 .addField("Número de canales de voz", `${canales.filter(channel => channel.type === "GUILD_VOICE").size}`, true)
-                // .addField('Testeador', `${canales.filter(channel => channel.type === "GUILD_ANNOUNCEMENT").size}`, true)
-                 .setColor("RANDOM")
-                 message.channel.send({embeds: [embed]}); 
-    
+            async function ejecutarcomando() {
+                const { EmbedBuilder } = require('discord.js');
+                var server = message.guild;
+                const owner = await message.guild.fetchOwner();
+                var nv = server.verificationLevel;
+                var canales = server.channels.cache;
+                if(nv === "NONE"){
+                    var nv = "⚪ Ninguno"
+                } 
+                if(nv === "LOW"){
+                    var nv = "🟢 Bajo"
+                } 
+                if(nv === "MEDIUM"){
+                    var nv = "🟡 Medio"
+                } 
+                if(nv === "HIGH"){
+                    var nv = "🟠 Alto"
+                } 
+                if(nv === "VERY_HIGH"){
+                    var nv = "🔴 Muy alto"
+                } 
+              
+                const embed = new EmbedBuilder()
+                     .setThumbnail(server.iconURL())
+                     .setAuthor({name: server.name,iconURL: server.iconURL()})
+                     .addFields([
+                        {  name: 'ID del Servidor', value: `${server.id}` },
+                        {  name: 'Número de Bots', value: `${server.members.cache.filter(m => m.user.bot).size}` },
+                        {  name: 'Creado el', value: `${server.createdAt}` },
+                        {  name: 'Dueño del Servidor', value: `${owner}` },
+                        {  name: 'Número de Miembros', value: ` ${server.memberCount}` },
+                        {  name: 'Número de Roles', value: ` ${server.roles.cache.size}` },
+                        {  name: 'Número de emojis del servidor', value: `${server.emojis.cache.size}` },
+                        {  name: 'Boosts', value: `${server.premiumSubscriptionCount.toString()}` },
+                        {  name: 'Nivel de verificación del servidor', value: `${canales.size}` },
+                        {  name: 'Número total de canales', value: `${nv}` },
+                        {  name: 'Número de canales de texto', value: `${canales.filter(channel => channel.type === "GUILD_TEXT").size}` },
+                        {  name: 'Número de canales de voz', value: `${canales.filter(channel => channel.type === "GUILD_VOICE").size}` },
+                    ])
+                     .setColor('0xff00d9')
+                     message.channel.send({embeds: [embed]}); 
+                
+            }
+       let iddelservidorejecutor = message.guild.id;
+       
+       let laidservidorejecutor = await serversmodstatusdb.obtener(iddelservidorejecutor);
+        if(!laidservidorejecutor) {
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${chistes}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${configuracion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${conversacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${diversion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${economia}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${gifs}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${informacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${juegos}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${moderacion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${musica}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${nsfw}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${reaccion}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${links}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${historia}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${utiles}`, `${modisonline}`);
+            serversmodstatusdb.set(`${iddelservidorejecutor}.${vip}`, `${modisonline}`);
+            ejecutarcomando();
+
+        }
+        else {
+            var estadosvmodulo = await serversmodstatusdb.obtener(`${iddelservidorejecutor}.${modulodeestecomando}`);
+            if(estadosvmodulo === modisonline) {
+                ejecutarcomando();
+            }
+            if(estadosvmodulo === modisoffline) {
+                message.channel.send(`**:x: | MODULE_OFFLINE:** Módulo de ${modulodeestecomando} apagado\nSi desea usar este comando, encienda el módulo.`);
+            }
+            if(estadosvmodulo !== modisonline && estadosvmodulo !== modisoffline) {
+                message.channel.send("**:x: | ERROR:** Error detectado! Anti-Crash-System: ACTIVATED!\nPor favor, reporte este error al staff del server o al desarrollador del bot.")
+            }
+        }
 }
         if(ncomando == privados.test) {
             if(message.author.id !== idpropietario) {

@@ -55,7 +55,7 @@ const serversmodstatusdb = new db.crearDB('serversmodstatus');
 
 module.exports = {
     name: `${ncomando}`,
-    run: async(client, message, args) => {
+    run: async(netcat, message, args) => {
         var estadosistema = await systemstatus.obtener("mode");
         var estadomodulochistes = estadomodulosdb.chistes;
         var estadomoduloconfiguracion = estadomodulosdb.configuracion;
@@ -75,10 +75,10 @@ module.exports = {
         var estadomodulovip = estadomodulosdb.vip;
         async function ejecutarcomandoisOK() {
             async function ejecutarcomando() {
-                const { MessageEmbed } = require('discord.js');
-    const efe = new MessageEmbed()
+                const { EmbedBuilder } = require('discord.js');
+    const efe = new EmbedBuilder()
         .setTitle(`Estoy de acuerdo ${message.author.username}`)
-        .setColor('RANDOM')
+        .setColor('0xff00d9')
         .setImage("https://c.tenor.com/rAuQOw-WY7IAAAAM/press-f-pay-respect.gif")
         .setTimestamp()
         .setFooter({text:`• F por ${message.author.tag}`,iconURL: message.author.displayAvatarURL({format: "png"})});
@@ -254,7 +254,7 @@ else {
 
 module.exports = {
     name: "f",
-    run: async (client, message, args) => {
+    run: async (netcat, message, args) => {
         
     }
 }*/
