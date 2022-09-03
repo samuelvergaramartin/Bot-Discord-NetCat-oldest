@@ -1,2 +1,2 @@
 # NetCat-discord.jsV13
- Código actual de NetCat.
+ Código antiguo de NetCat
